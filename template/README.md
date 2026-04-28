@@ -6,7 +6,7 @@ This is a university report template written in [Typst](https://typst.app/),
 based on the ["LaTeX-Vorlage für diverse Ausarbeitungen oder so ähnlich" by Prof. Dr. Jürgen Vollmer](https://www.karlsruhe.dhbw.de/fileadmin/user_upload/documents/content-de/Studiengaenge-Technik/Informatik/latex-vorlage-bericht.pdf) for LaTeX. [Why should you use Typst over LaTeX?](#-why-typst)
 
 > [!TIP]
-> Want to see how the template looks? [Download a preview PDF](https://github.com/dhbw-typst/template/releases/latest/download/main.pdf) to inspect the final result.
+> Want to see how the template looks? [Download a preview PDF](https://github.com/dhbw-typst/oderso-template/releases/latest/download/main-dhbw-ka.pdf) to inspect the final result.
 
 ## 🏃‍♂️ Getting Started
 
@@ -15,7 +15,7 @@ based on the ["LaTeX-Vorlage für diverse Ausarbeitungen oder so ähnlich" by Pr
 
 For the following setup guide, make sure you have installed [Visual Studio Code](https://code.visualstudio.com/).
 
-1. Click on [![Generate](https://img.shields.io/badge/Generate_from_template-8A2BE2?logo=github)](https://github.com/dhbw-typst/template/generate) and give your repository a telling name (e. g. `pa-1`)
+1. Click on [![Generate](https://img.shields.io/badge/Generate_from_template-8A2BE2?logo=github)](https://github.com/dhbw-typst/oderso-template/generate) and give your repository a telling name (e. g. `pa-1`)
 2. Clone your repository to your local machine: `git clone https://github.com/<you>/pa-1.git`
 3. Open this directory using VSCode and install the recommended extensions
    - Tinymist (provides completions, preview and PDF-generation for your template)
@@ -33,12 +33,12 @@ For the following setup guide, make sure you have installed [Visual Studio Code]
 ## 💡 Feedback
 
 If you have any idea on how to **improve the template**, please check out the
-[development repository](https://github.com/dhbw-typst/template-dev).
+[development repository](https://github.com/dhbw-typst/oderso-template-dev).
 
 ## 😵‍💫 Troubleshooting 
 
 >[!TIP]
->Don't hesitate to [open an issue](https://github.com/dhbw-typst/template-dev/issues/new) if you are puzzled on what is going on.
+>Don't hesitate to [open an issue](https://github.com/dhbw-typst/oderso-template-dev/issues/new) if you are puzzled on what is going on.
 
 Sometimes, Tinymist makes it a bit hard to diagnose the root cause of an issue.
 Then, it can be helpful to use the `typst` program directly!
