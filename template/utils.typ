@@ -325,7 +325,11 @@
       tablefigure: tablefigure,
     ),
   )
-  tidy.show-module(utils-docs, omit-private-definitions: true, omit-private-parameters: true)
+  tidy.show-module(
+    utils-docs,
+    omit-private-definitions: true,
+    omit-private-parameters: true,
+  )
 
   __in-documentation.update(false)
 }

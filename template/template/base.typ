@@ -1,13 +1,17 @@
 // LTeX: enabled=false
 
-#import "@preview/glossarium:0.5.10": gls, glspl, make-glossary, print-glossary, register-glossary
+#import "@preview/glossarium:0.5.10": (
+  gls, glspl, make-glossary, print-glossary, register-glossary,
+)
 #import "@preview/hydra:0.6.2": hydra
 #import "@preview/codly-languages:0.1.10": *
 #import "@preview/codly:1.3.0": *
 #import "@preview/drafting:0.2.2": *
 #import "@preview/linguify:0.5.0": *
 #import "@preview/tidy:0.4.3"
-#import "../utils.typ": __in-documentation, __in-outline, __documentation as __utils-documentation
+#import "../utils.typ": (
+  __documentation as __utils-documentation, __in-documentation, __in-outline,
+)
 
 /// Default heading numbering pattern.
 /// -> str

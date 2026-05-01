@@ -1,6 +1,6 @@
 // LTeX: enabled=false
 #import "utils.typ": caption-with-source
-#import "template/dhbw-ka.typ": dhbw-ka-adapter, __documentation
+#import "template/dhbw-ka.typ": __documentation, dhbw-ka-adapter
 
 #show: dhbw-ka-adapter.with(
   lang: "en",

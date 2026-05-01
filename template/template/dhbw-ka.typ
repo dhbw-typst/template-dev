@@ -1,6 +1,6 @@
 // LTeX: enabled=false
 
-#import "base.typ": project, signature-line, __generate-adapter-documentation
+#import "base.typ": __generate-adapter-documentation, project, signature-line
 #import "../utils.typ": styled-table
 #import "@preview/linguify:0.5.0": *
 
@@ -95,7 +95,9 @@
     linguify("processing-duration"),
     linguify("weeks", args: (count: processing-period-weeks)),
     linguify("matriculation-number") + ", " + linguify("course"),
-    authors.map(a => a.matriculation-number + ", " + a.course).join(linebreak()),
+    authors
+      .map(a => a.matriculation-number + ", " + a.course)
+      .join(linebreak()),
     ..if company-name != none and company-city != none {
       (linguify("training-company"), company-name + linebreak() + company-city)
     },

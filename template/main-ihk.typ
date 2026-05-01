@@ -1,6 +1,6 @@
 // LTeX: enabled=false
 #import "utils.typ": caption-with-source
-#import "template/ihk.typ": ihk-adapter, __documentation
+#import "template/ihk.typ": __documentation, ihk-adapter
 
 #show: ihk-adapter.with(
   lang: "de",
