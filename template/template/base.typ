@@ -75,7 +75,7 @@
 /// - appendices (): List of appendices with values "title" and "content"
 /// - library (str): Path to the library file (e.g. ./src.bib)
 /// - abbreviations (): List of abbreviations. See https://typst.app/universe/package/glossarium/ for more information
-/// - numbering-show-total (bool): Wether the content page numbering should include total pages ("3 / 24") or not ("3")
+/// - numbering-show-total (bool): Whether the content page numbering should include total pages ("3 / 24") or not ("3")
 /// - body (): Content
 /// ->
 #let project(
