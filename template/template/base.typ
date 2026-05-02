@@ -75,7 +75,7 @@
 /// - appendices (): List of appendices with values "title" and "content"
 /// - library (str): Path to the library file (e.g. ./src.bib)
 /// - abbreviations (): List of abbreviations. See https://typst.app/universe/package/glossarium/ for more information
-/// - content-page-numbering (str): Page numbering pattern for main content
+/// - numbering-show-total (bool): Whether the content page numbering should include total pages ("3 / 24") or not ("3")
 /// - body (): Content
 /// ->
 #let project(
@@ -105,7 +105,7 @@
   ),
   library: (),
   abbreviations: (),
-  content-page-numbering: "1",
+  numbering-show-total: false,
   body,
 ) = {
   // load linguify
@@ -113,7 +113,7 @@
 
   // page setup
   set document(title: title-long)
-  set page(paper: "a4")
+  set page(paper: "a4", margin: (top: 4cm, x: 2.5cm, bottom: 2.5cm))
 
   // set text language (e. g. for smart quotes)
   set text(lang: lang)
@@ -362,39 +362,42 @@
     }
   }
 
-  // display header
-  set page(header: {
-    context {
-      if here().page-numbering() == content-page-numbering {
-        grid(
-          columns: (auto, 1fr),
-          align(left, text(title-short)),
-          align(right, emph(hydra(1, display: (_, it) => {
-            it.body
-          }))),
-        )
-        line(length: 100%, stroke: (paint: gray))
-      }
-    }
-  })
-
-  // display main document and reset page counter
-  set page(
-    numbering: content-page-numbering,
-    footer: auto,
-    margin: (top: 4cm, x: 2.5cm, bottom: 2.5cm),
-  )
+  // reset page counter and show content
   counter(page).update(1)
 
   set par(leading: 0.9em)
 
   {
+    // display header
+    set page(
+      header: {
+        context {
+          grid(
+            columns: (auto, 1fr),
+            align(left, text(title-short)),
+            align(right, emph(hydra(1, display: (_, it) => {
+              it.body
+            }))),
+          )
+          line(length: 100%, stroke: (paint: gray))
+        }
+      },
+      numbering: (..n) => context {
+        if numbering-show-total {
+          numbering("1 / 1", n.at(0), ..counter(page).at(<__content-end>))
+        } else {
+          numbering("1", n.at(0))
+        }
+      },
+      footer: auto,
+    )
     show heading.where(level: 1): it => {
       pagebreak(weak: true)
       it
     }
 
     body
+    [#[] <__content-end>]
   }
 
   // display bibliography
