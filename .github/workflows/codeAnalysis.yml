@@ -62,6 +62,16 @@ jobs:
       - name: Build template
         run: ./typst compile ${{ matrix.path }}
 
+  check_build_results:
+    name: Check Build Result
+    needs: check_build
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Fail if any build failed
+        if: needs.check_build.result != 'success'
+        run: exit 1
+
   check_pdf:
     name: Check PDF parity (${{ matrix.file }})
     needs: discover_files
