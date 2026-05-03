@@ -113,7 +113,7 @@
 
   // page setup
   set document(title: title-long)
-  set page(paper: "a4", margin: (top: 4cm, x: 2.5cm, bottom: 2.5cm))
+  set page(paper: "a4", margin: (inside: 2.5cm))
 
   // set text language (e. g. for smart quotes)
   set text(lang: lang)
@@ -370,6 +370,7 @@
   {
     // display header
     set page(
+      margin: (top: 4cm),
       header: {
         context {
           grid(
