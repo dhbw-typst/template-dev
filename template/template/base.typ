@@ -363,7 +363,6 @@
   }
 
   {
-
     // display header
     set page(
       margin: (top: 4cm),
