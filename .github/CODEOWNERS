@@ -1,0 +1,13 @@
+# Global owners
+* @dhbw-typst/core
+
+# Adapters
+## DHBW Karlsruhe
+template/template/dhbw-ka.typ @dhbw-typst/dhbw-ka
+template/main-dhbw-ka.typ @dhbw-typst/dhbw-ka
+
+## DHBW Mannheim
+## - Currently no maintainer -
+
+## IHK
+## - Currently no maintainer -
