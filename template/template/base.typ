@@ -92,7 +92,6 @@
       lastname: none,
     ),
   ),
-  preamble: (),
   postamble: (),
   abstracts: (),
   appendices: (

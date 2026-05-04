@@ -52,7 +52,6 @@
     topic-editing: none,
     research: none,
     design: none,
-    position: "after-confidentiality-clause",
   ),
   ..args,
   body,
@@ -221,13 +220,10 @@
     authors: authors,
     submission-info: submission-info,
     metadata: metadata,
-    preamble: (
+    postamble: (
       statutory-declaration,
       ..if (confidentiality-clause) { (confidentiality-clause-text,) },
-      ai-tools-declaration-preamble,
-    ),
-    postamble: (
-      ai-tools-declaration-postamble,
+      ai-tools-declaration,
     ),
     ..args,
   )
