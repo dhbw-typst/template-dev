@@ -128,7 +128,7 @@
     columns: (76%, auto),
     inset: 0cm,
     align(left, heading(
-      level: 1
+      level: 1,
     )[Hilfsmittelangabe zum Einsatz von KI-basierten Werkzeugen bei der Anfertigung von wissenschaftlichen Arbeiten]),
     align(right, image("DHBW-Logo.svg", width: 100%)),
   )
