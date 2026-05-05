@@ -1,7 +1,7 @@
 // LTeX: enabled=false
 
 #import "base.typ": project, signature-line
-#import "../utils.typ": styled-table
+#import "../utils.typ": __linguify-content, styled-table
 #import "@preview/linguify:0.5.0": *
 
 #let dhbw-ka-adapter(
@@ -39,38 +39,41 @@
   body,
 ) = {
   let submission-info = [
-    #linguify("as-part-of-examination-dhbw")
+    #__linguify-content("as-part-of-examination-dhbw")
 
     *#examination*
 
-    #linguify("in-field-of-study", args: (study: study))
+    #__linguify-content("in-field-of-study", args: (study: study))
 
-    #context {
-      linguify-raw("at-the-institution", args: (
-        institution: linguify-raw("dhbw-long"),
-        city: linguify-raw("ka"),
-      ))
-    }
+    #context __linguify-content("at-the-institution", args: (
+      institution: linguify-raw("dhbw-long"),
+      city: linguify-raw("ka"),
+    ))
   ]
   let metadata = (
-    linguify("submission-date"),
+    __linguify-content("submission-date"),
     submission-date.display(submission-date-format),
-    linguify("processing-duration"),
-    linguify("weeks", args: (count: processing-period-weeks)),
-    linguify("matriculation-number") + ", " + linguify("course"),
+    __linguify-content("processing-duration"),
+    __linguify-content("weeks", args: (count: processing-period-weeks)),
+    __linguify-content("matriculation-number")
+      + ", "
+      + __linguify-content("course"),
     authors
       .map(a => a.matriculation-number + ", " + a.course)
       .join(linebreak()),
     ..if company-name != none and company-city != none {
-      (linguify("training-company"), company-name + linebreak() + company-city)
+      (
+        __linguify-content("training-company"),
+        company-name + linebreak() + company-city,
+      )
     },
     ..if company-department != none {
-      (linguify("department"), company-department)
+      (__linguify-content("department"), company-department)
     },
     ..if company-supervisor != none {
-      (linguify("supervisor-at-training-company"), company-supervisor)
+      (__linguify-content("supervisor-at-training-company"), company-supervisor)
     },
-    linguify("supervisor-at-university"),
+    __linguify-content("supervisor-at-university"),
     university-supervisor,
   )
   let statutory-declaration = {
@@ -85,28 +88,31 @@
     // TODO: The statutory declaration changed for courses starting in 2024. This complicated edge case for courses from 2023
     // and earlier can safely be removed by September 2026
     let statuatory-declaration = if course-year < 24 {
-      linguify("statutory-declaration-note-dhbw-old", args: (
+      __linguify-content("statutory-declaration-note-dhbw-old", args: (
         author-count: authors.len(),
         title: args.at("title-long"),
         type: args.at("thesis-type"),
       ))
     } else {
-      linguify("statutory-declaration-note-dhbw", args: (
+      __linguify-content("statutory-declaration-note-dhbw", args: (
         author-count: authors.len(),
       ))
     }
 
     let statuatory-declaration-printed = if course-year < 24 {
-      linguify("statutory-declaration-note-dhbw-old-printed", args: (
+      __linguify-content("statutory-declaration-note-dhbw-old-printed", args: (
         author-count: authors.len(),
       ))
     } else {
-      linguify("statutory-declaration-note-dhbw-printed", args: (
+      __linguify-content("statutory-declaration-note-dhbw-printed", args: (
         author-count: authors.len(),
       ))
     }
 
-    align(center, heading(linguify("statutory-declaration"), level: 1))
+    align(center, heading(
+      __linguify-content("statutory-declaration"),
+      level: 1,
+    ))
 
     statuatory-declaration
     if not digital-only {
@@ -130,9 +136,12 @@
 
   let confidentiality-clause-text = {
     pagebreak()
-    align(center, heading(linguify("confidentiality-agreement"), level: 1))
+    align(center, heading(
+      __linguify-content("confidentiality-agreement"),
+      level: 1,
+    ))
 
-    linguify("confidentiality-agreement-note-dhbw")
+    __linguify-content("confidentiality-agreement-note-dhbw")
   }
 
   let ai-acknowledgement-empty = false
@@ -144,7 +153,7 @@
     }
 
     align(center, heading(
-      linguify("ai-acknowledgement-heading-dhbw"),
+      __linguify-content("ai-acknowledgement-heading-dhbw"),
       level: 1,
     ))
 
@@ -166,7 +175,10 @@
     align(center, styled-table(
       columns: (auto, 1fr),
       table-content: (
-        table.header(linguify("tool"), linguify("usage-description")),
+        table.header(
+          __linguify-content("tool"),
+          __linguify-content("usage-description"),
+        ),
         ..table-cells,
       ),
     ))

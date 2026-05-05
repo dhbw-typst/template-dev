@@ -1,4 +1,5 @@
 // LTeX: enabled=false
+#import "@preview/linguify:0.5.0": *
 
 /// codefigure creates a figure with a caption.
 /// figures created using this function will also appear in the
@@ -159,4 +160,8 @@
     table-content: table-content,
     ..args,
   ))
+}
+
+#let __linguify-content(..args) = {
+  context eval(linguify-raw(..args), mode: "markup")
 }

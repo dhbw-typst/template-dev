@@ -8,10 +8,8 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/drafting:0.2.2": *
 #import "@preview/linguify:0.5.0": *
-#import "../utils.typ": __in-outline
+#import "../utils.typ": __in-outline, __linguify-content
 
-
-#let page-numbering = "1 / 1"
 #let heading-numbering = "1.1.1"
 
 #let signature-line(
@@ -50,10 +48,10 @@
     columns: (30mm, 30mm, 20mm, 80mm),
     ..signature-content,
     grid.hline(end: 2), grid.hline(start: 3),
-    linguify("place-of-signature"),
-    linguify("date-of-signature"),
+    __linguify-content("place-of-signature"),
+    __linguify-content("date-of-signature"),
     [],
-    grid.cell(linguify("signature"), align: center),
+    grid.cell(__linguify-content("signature"), align: center),
   ))
 }
 
@@ -213,7 +211,7 @@
     // Check wether there are any notes in the document
     if (query(selector(<margin-note>).or(<inline-note>)).len() > 0) {
       set heading(numbering: none, outlined: false)
-      note-outline(title: linguify("list-of-notes"))
+      note-outline(title: __linguify-content("list-of-notes"))
       pagebreak()
     }
   }
@@ -245,7 +243,7 @@
 
       #submission-info
 
-      #linguify("by")
+      #__linguify-content("by")
 
       #for author in authors {
         [*#author.firstname #author.lastname*\ ]
@@ -285,7 +283,7 @@
     align(center + horizon)[
       #heading(outlined: false, numbering: none, [#text(
           0.85em,
-          smallcaps(linguify("abstract")),
+          smallcaps(__linguify-content("abstract")),
         )\ #text(
           0.75em,
           weight: "light",
@@ -311,7 +309,7 @@
     show outline.entry.where(level: 1): strong
     set par(leading: 0.65em)
     outline(
-      title: linguify("table-of-contents"),
+      title: __linguify-content("table-of-contents"),
       depth: 3,
       indent: auto,
       target: selector(heading).before(
@@ -323,7 +321,11 @@
   // index of abbreviations
   if abbreviations.len() > 0 {
     pagebreak()
-    heading(outlined: true, numbering: none, linguify("list-of-abbreviations"))
+    heading(
+      outlined: true,
+      numbering: none,
+      __linguify-content("list-of-abbreviations"),
+    )
     register-glossary(abbreviations)
     print-glossary(abbreviations, deduplicate-back-references: true)
   }
@@ -333,7 +335,7 @@
     // list of figures
     if query(figure.where(kind: image)).len() > 0 {
       pagebreak()
-      heading(linguify("list-of-figures"), numbering: none)
+      heading(__linguify-content("list-of-figures"), numbering: none)
       outline(
         target: figure.where(kind: image).before(<__appendix-start>),
         title: none,
@@ -343,7 +345,7 @@
     // list of tables
     if query(figure.where(kind: table)).len() > 0 {
       pagebreak()
-      heading(linguify("list-of-tables"), numbering: none)
+      heading(__linguify-content("list-of-tables"), numbering: none)
       outline(
         target: figure.where(kind: table).before(<__appendix-start>),
         title: none,
@@ -353,7 +355,7 @@
     // list of source code
     if query(figure.where(kind: raw)).len() > 0 {
       pagebreak()
-      heading(linguify("list-of-code"), numbering: none)
+      heading(__linguify-content("list-of-code"), numbering: none)
       outline(
         target: figure.where(kind: raw).before(<__appendix-start>),
         title: none,
@@ -402,7 +404,10 @@
   set page(numbering: "a", footer: auto)
   counter(page).update(1)
 
-  bibliography("../" + library, title: linguify("list-of-bibliography"))
+  bibliography(
+    "../" + library,
+    title: __linguify-content("list-of-bibliography"),
+  )
 
   // display appendix
   if appendices != none {
@@ -419,7 +424,7 @@
     counter(heading).update(0)
 
     heading(
-      linguify("list-of-appendices"),
+      __linguify-content("list-of-appendices"),
       numbering: none,
     )
 
