@@ -36,7 +36,7 @@
   signature-city: "Karlsruhe",
   /// Submission date of the thesis. -> datetime
   submission-date: datetime.today(),
-  /// Format string for displaying the submission date. -> str
+  /// Format string for displaying the submission date. (see #link("https://typst.app/docs/reference/foundations/datetime/#format")[datetime formats]) -> str
   submission-date-format: "[day].[month].[year]",
   /// Duration of the thesis processing period in weeks. -> int | none
   processing-period-weeks: none,

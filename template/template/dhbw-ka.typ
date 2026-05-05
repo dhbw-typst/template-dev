@@ -24,7 +24,7 @@
   /// Whether to include a confidentiality clause page. -> bool
   confidentiality-clause: true,
   /// List of AI tools used in the thesis, according to section 4.6 of
-  /// "Leitlinien für Wissenschaftliche Arbeiten". Each entry should have
+  /// #link("https://www.karlsruhe.dhbw.de/fileadmin/user_upload/documents/content-de/Studiengaenge-Technik/Informatik/191212_Leitlinien_Praxismodule_Studien_Bachelorarbeiten.pdf")[Leitlinien für Wissenschaftliche Arbeiten]. Each entry should have
   /// `tool` (name) and `usage` (description of how it was used). -> array
   ai-acknowledgement: (
     (
@@ -52,7 +52,7 @@
   signature-city: "Karlsruhe",
   /// Submission date of the thesis. -> datetime
   submission-date: datetime.today(),
-  /// Format string for displaying the submission date. -> str
+  /// Format string for displaying the submission date. (see #link("https://typst.app/docs/reference/foundations/datetime/#format")[datetime formats]) -> str
   submission-date-format: "[day].[month].[year]",
   /// Duration of the thesis processing period in weeks. -> int | none
   processing-period-weeks: none,

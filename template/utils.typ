@@ -292,30 +292,3 @@
     ..args,
   ))
 }
-
-#let __documentation() = {
-  [== Utils (`utils.typ`)]
-
-  __in-documentation.update(true)
-
-  let utils-docs = tidy.parse-module(
-    read("utils.typ"),
-    scope: (
-      codefigure: codefigure,
-      codefigurefile: codefigurefile,
-      hr: hr,
-      caption-with-source: caption-with-source,
-      table-hline-spaced: table-hline-spaced,
-      tablefigure-raw: tablefigure-raw,
-      styled-table: styled-table,
-      tablefigure: tablefigure,
-    ),
-  )
-  tidy.show-module(
-    utils-docs,
-    omit-private-definitions: true,
-    omit-private-parameters: true,
-  )
-
-  __in-documentation.update(false)
-}

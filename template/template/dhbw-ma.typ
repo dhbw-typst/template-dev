@@ -48,7 +48,7 @@
   submission-date: datetime.today(),
   /// Submission date for the module (used in AI declaration form). -> datetime
   module-submission-date: datetime.today(),
-  /// Format string for displaying dates. -> str
+  /// Format string for displaying dates. (see #link("https://typst.app/docs/reference/foundations/datetime/#format")[datetime formats]) -> str
   submission-date-format: "[day].[month].[year]",
   /// Duration of the thesis processing period in weeks. -> int | none
   processing-period-weeks: none,

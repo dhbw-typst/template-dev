@@ -1,6 +1,19 @@
 #import "@preview/tidy:0.4.3"
 #import "template/utils.typ": *
 
+#show link: it => {
+  if type(it.dest) == str {
+    set text(fill: gray.darken(80%))
+    underline(
+      stroke: (paint: gray, thickness: 0.5pt, dash: "densely-dashed"),
+      offset: 4pt,
+      it,
+    )
+  } else {
+    it
+  }
+}
+
 #let show-module(parsed) = {
   tidy.show-module(
     parsed,
@@ -69,7 +82,6 @@
   scope: (
     codefigure: codefigure,
     codefigurefile: codefigurefile,
-    hr: hr,
     caption-with-source: caption-with-source,
     table-hline-spaced: table-hline-spaced,
     tablefigure-raw: tablefigure-raw,

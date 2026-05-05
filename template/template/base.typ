@@ -28,7 +28,7 @@
   city: none,
   /// Date of the signature. -> datetime | none
   date: none,
-  /// Format string for displaying the date. -> str
+  /// Format string for displaying the date. (see #link("https://typst.app/docs/reference/foundations/datetime/#format")[datetime formats]) -> str
   date-format: "[day].[month].[year]",
   /// Author dictionary with `firstname`, `lastname`, and optionally `signature`
   /// (an image). -> dictionary
