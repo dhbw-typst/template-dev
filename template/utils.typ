@@ -43,7 +43,7 @@
 /// is auto-detected from the file extension unless explicitly specified.
 /// -> content
 #let codefigurefile(
-  /// Path to the source file to include (relative to the document root). -> str
+  /// Path to the source file to include (relative to the main file). -> str
   file,
   /// Optional caption text for the figure. -> content | none
   caption: none,
