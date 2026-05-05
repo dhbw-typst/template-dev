@@ -122,8 +122,8 @@
   /// List of abstract tuples. Each tuple contains:
   /// `(language-code, language-name, content)` e.g., `("en", "English", [Abstract text...])`. -> array
   abstracts: (),
-  /// List of appendix dictionaries. Each should have `title` (str),
-  /// `reference` (label string), and `content`. Set to `none` to disable appendices. -> array | none
+  /// List of appendix dictionaries. Each should have `title` (str)
+  /// and `content`, optionally `reference` (label string). Set to `none` to disable appendices. -> array | none
   appendices: (
     (
       title: none,
