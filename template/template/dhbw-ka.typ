@@ -137,12 +137,7 @@
 
   let ai-acknowledgement-empty = false
   let ai-acknowledgement-text = {
-    if not confidentiality-clause {
-      pagebreak()
-    } else {
-      v(2em)
-    }
-
+    pagebreak(weak: true)
     align(center, heading(
       linguify("ai-acknowledgement-heading-dhbw"),
       level: 1,
