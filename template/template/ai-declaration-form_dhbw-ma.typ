@@ -127,7 +127,7 @@
     align(left, text(
       size: 12pt,
     )[*Hilfsmittelangabe zum Einsatz von KI-basierten Werkzeugen bei der Anfertigung von wissenschaftlichen Arbeiten*]),
-    align(right, image("DHBW-Logo.svg", width: 100%)),
+    align(right, image("assets/DHBW-Logo.svg", width: 100%)),
   )
 
   v(0.7cm)
