@@ -66,17 +66,6 @@
   )
 }
 
-/// Creates a horizontal line (horizontal rule) spanning the full width.
-/// The line is rendered in gray color.
-///
-/// ```example
-/// Some text above
-/// #hr
-/// Some text below
-/// ```
-/// -> content
-#let hr = line(length: 100%, stroke: (paint: gray))
-
 /// Internal state to track whether we are currently rendering an outline.
 /// -> state
 #let __in-outline = state("in-outline", false)
