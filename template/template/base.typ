@@ -4,7 +4,6 @@
   gls, glspl, make-glossary, print-glossary, register-glossary,
 )
 #import "@preview/hydra:0.6.2": hydra
-#import "@preview/codly-languages:0.1.10": *
 #import "@preview/codly:1.3.0": *
 #import "@preview/drafting:0.2.2": *
 #import "@preview/linguify:0.5.0": *
@@ -152,10 +151,8 @@
   // fancy code blocks
   // if you don't like them, just remove this section.
   show: codly-init.with()
-  let languages-extended = codly-languages
 
   codly(
-    languages: languages-extended,
     zebra-fill: none,
     display-icon: false,
     display-name: false,
