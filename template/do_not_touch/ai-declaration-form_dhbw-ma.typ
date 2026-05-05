@@ -67,6 +67,9 @@
   set grid(inset: (top: 0.1cm, bottom: 0.1cm))
   set text(size: fontSizeNormal, font: "Arial")
 
+  show heading: it => {
+    text(it.body) // Disable previous styling
+  }
   show heading.where(level: 1): set text(size: 12pt)
   show heading.where(level: 2): set text(size: 10pt)
 
@@ -124,15 +127,15 @@
   grid(
     columns: (76%, auto),
     inset: 0cm,
-    align(left, text(
-      size: 12pt,
-    )[*Hilfsmittelangabe zum Einsatz von KI-basierten Werkzeugen bei der Anfertigung von wissenschaftlichen Arbeiten*]),
+    align(left, heading(
+      level: 1
+    )[Hilfsmittelangabe zum Einsatz von KI-basierten Werkzeugen bei der Anfertigung von wissenschaftlichen Arbeiten]),
     align(right, image("DHBW-Logo.svg", width: 100%)),
   )
 
   v(0.7cm)
 
-  heading(level: 2)[Persönliche Angaben]
+  heading(level: 2, outlined: false)[Persönliche Angaben]
 
   v(1.1cm)
 
