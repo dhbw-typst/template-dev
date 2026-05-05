@@ -108,7 +108,7 @@
   body,
 ) = {
   // load linguify
-  set-database(eval(load-ftl-data("../do_not_touch/l10n", ("en", "de"))))
+  set-database(eval(load-ftl-data("l10n", ("en", "de"))))
 
   // page setup
   set document(title: title-long)

@@ -32,7 +32,7 @@
   university-supervisor: none,
   company-name: "Corp SE",
   company-city: "Berlin",
-  company-logo: image("../do_not_touch/Company-Logo.svg"),
+  company-logo: image("assets/Company-Logo.svg"),
   company-department: none,
   company-supervisor: none,
   ..args,
@@ -174,7 +174,7 @@
 
   show: project.with(
     logo-left: company-logo,
-    logo-right: image("../do_not_touch/DHBW-Logo.svg"),
+    logo-right: image("assets/DHBW-Logo.svg"),
     authors: authors,
     submission-info: submission-info,
     metadata: metadata,

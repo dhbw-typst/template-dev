@@ -13,7 +13,7 @@ Inserting figures and code blocks into your Typst document enhances its informat
   "Image Figures in Typst",
   "#import \"../utils.typ\": caption-with-source
 #figure(
-  image(\"../do_not_touch/Company-Logo.svg\"),
+  image(\"../template/assets/Company-Logo.svg\"),
   caption: caption-with-source(\"Comapny Logo\", [@electronic]),
 )",
 )

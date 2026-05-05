@@ -1,7 +1,7 @@
 // LTeX: enabled=false
 
 #import "base.typ": project, signature-line
-#import "../do_not_touch/ai-declaration-form_dhbw-ma.typ": ai-declaration-form
+#import "ai-declaration-form_dhbw-ma.typ": ai-declaration-form
 #import "@preview/linguify:0.5.0": *
 
 #let dhbw-ma-adapter(
@@ -35,7 +35,7 @@
   ),
   company-name: "Corp SE",
   company-city: "Berlin",
-  company-logo: image("../do_not_touch/Company-Logo.svg"),
+  company-logo: image("assets/Company-Logo.svg"),
   company-department: none,
   company-supervisor: (
     firstname: none,
@@ -217,7 +217,7 @@
 
   show: project.with(
     logo-left: company-logo,
-    logo-right: image("../do_not_touch/DHBW-Logo.svg"),
+    logo-right: image("assets/DHBW-Logo.svg"),
     authors: authors,
     submission-info: submission-info,
     metadata: metadata,
