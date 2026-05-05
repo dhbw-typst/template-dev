@@ -4,7 +4,6 @@
   gls, glspl, make-glossary, print-glossary, register-glossary,
 )
 #import "@preview/hydra:0.6.2": hydra
-#import "@preview/codly-languages:0.1.10": *
 #import "@preview/codly:1.3.0": *
 #import "@preview/drafting:0.2.2": *
 #import "@preview/linguify:0.5.0": *
@@ -140,9 +139,6 @@
     it
   }
 
-  // load additional syntaxes for code
-  set raw(syntaxes: "../do_not_touch/cds.sublime-syntax")
-
   // fancy inline code
   // if you don't like them, just remove this section.
   show raw.where(block: false): box.with(
@@ -155,25 +151,8 @@
   // fancy code blocks
   // if you don't like them, just remove this section.
   show: codly-init.with()
-  let languages-extended = codly-languages
-  languages-extended.insert(
-    "cds",
-    (
-      name: [CDS],
-      color: rgb("#2599CD"),
-      // styling from https://github.com/swaits/typst-collection/blob/b399080660c0566792cb3579ccf52ce7af9048a6/codly-languages/lib.typ#L16-L21
-      // icon: box(
-      //   image("logo.svg", height: 0.9em),
-      //   baseline: 0.05em,
-      //   inset: 0pt,
-      //   outset: 0pt,
-      // )
-      //  + h(0.3em),
-    ),
-  )
 
   codly(
-    languages: languages-extended,
     zebra-fill: none,
     display-icon: false,
     display-name: false,
