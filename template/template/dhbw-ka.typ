@@ -2,7 +2,7 @@
 
 #import "base.typ": __signature-line, project
 #import "../template/utils.typ": styled-table
-#import "@preview/linguify:0.5.0": *
+#import "@preview/linguify:0.5.0": linguify, linguify-raw
 
 /// Template adapter for DHBW Karlsruhe thesis documents.
 ///

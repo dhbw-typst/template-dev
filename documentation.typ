@@ -1,5 +1,8 @@
 #import "@preview/tidy:0.4.3"
-#import "template/template/utils.typ": *
+#import "template/template/utils.typ": (
+  caption-with-source, codefigure, codefigurefile, styled-table,
+  table-hline-spaced, tablefigure, tablefigure-raw,
+)
 
 #show link: it => {
   if type(it.dest) == str {

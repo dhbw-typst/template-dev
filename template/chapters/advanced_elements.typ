@@ -94,7 +94,7 @@ $",
 
 == Notes
 
-#import "@preview/drafting:0.2.2": *
+#import "@preview/drafting:0.2.2": inline-note, margin-note
 
 This template uses #link("https://typst.app/universe/package/drafting/")[Drafting] for notes.
 Using `margin-note` you can add notes to #margin-note("Anywhere in your document!") the margin of your document.

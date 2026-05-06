@@ -2,7 +2,7 @@
 
 #import "base.typ": __signature-line, project
 #import "assets/ai-declaration-form_dhbw-ma.typ": ai-declaration-form
-#import "@preview/linguify:0.5.0": *
+#import "@preview/linguify:0.5.0": linguify, linguify-raw
 
 /// Template adapter for DHBW Mannheim thesis documents.
 ///
