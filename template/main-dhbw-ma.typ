@@ -60,7 +60,7 @@
     email: "max.mustermann@examples.com",
     phone-number: "+49 0000 1111",
   ),
-  company-logo: image("template/assets/Company-Logo.svg"),
+  company-logo: image("assets/Company-Logo.svg"),
 
   university-supervisor: (
     firstname: "Heinrich",

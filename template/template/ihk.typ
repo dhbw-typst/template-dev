@@ -22,7 +22,7 @@
   processing-period-weeks: none,
   company-name: "Corp SE",
   company-city: "Berlin",
-  company-logo: image("assets/Company-Logo.svg"),
+  company-logo: image("../assets/Company-Logo.svg"),
   company-department: none,
   company-supervisor: none,
   ..args,
