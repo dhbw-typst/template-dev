@@ -4,11 +4,12 @@
   gls, glspl, make-glossary, print-glossary, register-glossary,
 )
 #import "@preview/hydra:0.6.2": hydra
-#import "@preview/codly:1.3.0": *
-#import "@preview/drafting:0.2.2": *
-#import "@preview/linguify:0.5.0": *
-#import "@preview/tidy:0.4.3"
-#import "../utils.typ": __in-outline, __linguify-content
+#import "@preview/codly:1.3.0": codly, codly-init
+#import "@preview/drafting:0.2.2": note-outline, set-margin-note-defaults
+#import "@preview/linguify:0.5.0": (
+  linguify, linguify-raw, load-ftl-data, set-database,
+)
+#import "utils.typ": __in-outline, __linguify-content
 
 /// Default heading numbering pattern.
 /// -> str
@@ -138,7 +139,7 @@
   body,
 ) = {
   // load linguify
-  set-database(eval(load-ftl-data("../do_not_touch/l10n", ("en", "de"))))
+  set-database(eval(load-ftl-data("l10n", ("en", "de"))))
 
   // page setup
   set document(title: title-long)
