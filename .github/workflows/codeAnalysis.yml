@@ -120,6 +120,7 @@ jobs:
         with:
           name: diff-pdf-${{ matrix.file }}
           path: diff.pdf
+          archive: false
       - name: Upload diff marker
         if: steps.diff_check.outcome == 'failure'
         run: echo "true" > diff-marker.txt
