@@ -32,6 +32,7 @@ abstract = Zusammenfassung
 list-of-notes = Notizverzeichnis
 table-of-contents = Inhaltsverzeichnis
 list-of-abbreviations = Abkürzungsverzeichnis
+list-of-glossary = Glossar
 list-of-figures = Abbildungsverzeichnis
 list-of-tables = Tabellenverzeichnis
 list-of-code = Quellcodeverzeichnis
