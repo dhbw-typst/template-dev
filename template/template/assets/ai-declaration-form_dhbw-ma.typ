@@ -130,7 +130,7 @@
     align(left, heading(
       level: 1,
     )[Hilfsmittelangabe zum Einsatz von KI-basierten Werkzeugen bei der Anfertigung von wissenschaftlichen Arbeiten]),
-    align(right, image("assets/DHBW-Logo.svg", width: 100%)),
+    align(right, image("DHBW-Logo.svg", width: 100%)),
   )
 
   v(0.7cm)
@@ -309,5 +309,4 @@
   design: "Textgenerierung, Korrektur",
   signature-city: "Mannheim",
   signature-date: datetime(year: 2026, month: 06, day: 10),
-  signature-image: image("../assets/example-signature.png"),
 )

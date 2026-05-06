@@ -1,7 +1,7 @@
 // LTeX: enabled=false
 
 #import "base.typ": __signature-line, project
-#import "ai-declaration-form_dhbw-ma.typ": ai-declaration-form
+#import "assets/ai-declaration-form_dhbw-ma.typ": ai-declaration-form
 #import "@preview/linguify:0.5.0": *
 
 /// Template adapter for DHBW Mannheim thesis documents.
