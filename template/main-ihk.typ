@@ -1,6 +1,5 @@
 // LTeX: enabled=false
-#import "utils.typ": caption-with-source
-#import "template/ihk.typ": ihk-adapter
+#import "template/lib.typ": caption-with-source, ihk-adapter
 
 #show: ihk-adapter.with(
   lang: "de",
@@ -26,6 +25,7 @@
   processing-period-weeks: 12,
   company-department: "Human Resources",
   company-supervisor: "Max Mustermann",
+  company-logo: image("assets/Company-Logo.svg"),
 
   // appendices: usage: (
   //   title: "Title",

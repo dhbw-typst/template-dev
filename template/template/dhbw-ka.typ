@@ -1,8 +1,8 @@
 // LTeX: enabled=false
 
 #import "base.typ": __signature-line, project
-#import "../utils.typ": styled-table
-#import "@preview/linguify:0.5.0": *
+#import "../template/utils.typ": styled-table
+#import "@preview/linguify:0.5.0": linguify, linguify-raw
 
 /// Template adapter for DHBW Karlsruhe thesis documents.
 ///
@@ -63,7 +63,7 @@
   /// City where the company is located. -> str | none
   company-city: "Berlin",
   /// Company logo image. -> content | none
-  company-logo: image("../do_not_touch/Company-Logo.svg"),
+  company-logo: none,
   /// Department within the company. -> str | none
   company-department: none,
   /// Name of the company supervisor. -> str | none
@@ -206,7 +206,7 @@
 
   show: project.with(
     __logo-left: company-logo,
-    __logo-right: image("../do_not_touch/DHBW-Logo.svg"),
+    __logo-right: image("assets/DHBW-Logo.svg"),
     __authors: authors,
     __submission-info: submission-info,
     __metadata: metadata,

@@ -1,6 +1,5 @@
 // LTeX: enabled=false
-#import "utils.typ": caption-with-source
-#import "template/dhbw-ma.typ": dhbw-ma-adapter
+#import "template/lib.typ": caption-with-source, dhbw-ma-adapter
 
 #show: dhbw-ma-adapter.with(
   lang: "en",
@@ -60,7 +59,7 @@
     email: "max.mustermann@examples.com",
     phone-number: "+49 0000 1111",
   ),
-  company-logo: image("do_not_touch/Company-Logo.svg"),
+  company-logo: image("assets/Company-Logo.svg"),
 
   university-supervisor: (
     firstname: "Heinrich",

@@ -1,6 +1,5 @@
 // LTeX: enabled=false
-#import "utils.typ": caption-with-source
-#import "template/dhbw-ka.typ": dhbw-ka-adapter
+#import "template/lib.typ": caption-with-source, dhbw-ka-adapter
 
 #show: dhbw-ka-adapter.with(
   lang: "en",
@@ -62,7 +61,7 @@
   // Remove if your thesis is not written without a company
   company-department: "Human Resources",
   company-supervisor: "Max Mustermann",
-  company-logo: image("do_not_touch/Company-Logo.svg"),
+  company-logo: image("assets/Company-Logo.svg"),
 
   university-supervisor: "Heinrich Braun",
 
