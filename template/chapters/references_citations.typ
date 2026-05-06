@@ -46,7 +46,7 @@ Specify acronyms in the project configuration to use them throughout your docume
   "I don't understand @NN or @NN:pl and never will understand.",
 )
 
-On the first usage, the full form of the acronym is displayed, and on subsequent usages, only the acronym is shown. Additionally, used acronyms are displayed in the acronyms section in the preamble.
+On the first usage, the full form of the acronym is displayed, and on subsequent usages, only the acronym is shown. Additionally, used acronyms are displayed in the abbreviations section in the preamble.
 
 == Glossary
 Specify glossary entries in the project configuration to define technical terms with detailed descriptions. Unlike acronyms, glossary entries provide longer explanations and can include multiple sentences.
