@@ -1,21 +1,44 @@
 // LTeX: enabled=false
 
-#import "base.typ": project, signature-line
+#import "base.typ": __signature-line, project
 #import "../utils.typ": styled-table
 #import "@preview/linguify:0.5.0": *
 
+/// Template adapter for DHBW Karlsruhe thesis documents.
+///
+/// This function configures the base `project` template with DHBW Karlsruhe-specific
+/// settings, including statutory declarations, confidentiality clauses,
+/// and AI tool acknowledgements according to DHBW guidelines.
+///
+/// In addition to the parameters listed below, this adapter accepts all parameters
+/// from the base `project` template (e.g., `title-long`, `title-short`, `thesis-type`,
+/// `abstracts`, `appendices`, `library`, `abbreviations`, `lang`).
+/// -> content
 #let dhbw-ka-adapter(
+  /// Whether the thesis is submitted digitally. Affects the signature line
+  /// display in the statutory declaration. -> bool
   digital-submission: true,
+  /// Whether the thesis is submitted digitally only (no printed copy).
+  /// Affects the wording of the statutory declaration. -> bool
   digital-only: true,
+  /// Whether to include a confidentiality clause page. -> bool
   confidentiality-clause: true,
+  /// List of AI tools used in the thesis, according to section 4.6 of
+  /// #link("https://www.karlsruhe.dhbw.de/fileadmin/user_upload/documents/content-de/Studiengaenge-Technik/Informatik/191212_Leitlinien_Praxismodule_Studien_Bachelorarbeiten.pdf")[Leitlinien für Wissenschaftliche Arbeiten]. Each entry should have
+  /// `tool` (name) and `usage` (description of how it was used). -> array
   ai-acknowledgement: (
     (
       tool: none,
       usage: none,
     ),
   ),
+  /// The examination degree, e.g., "Bachelor of Science (B.Sc.)". -> str
   examination: "Bachelor of Science (B.Sc.)",
+  /// The field of study, e.g., "Computer Science". -> str
   study: "Computer Science",
+  /// List of author dictionaries. Each author should have: `firstname`,
+  /// `lastname`, `matriculation-number`, `course`, and optionally `signature`
+  /// (an image or text for digital signatures). -> array
   authors: (
     (
       firstname: none,
@@ -25,17 +48,31 @@
       signature: none,
     ),
   ),
+  /// City shown on the signature line. -> str
   signature-city: "Karlsruhe",
+  /// Submission date of the thesis. -> datetime
   submission-date: datetime.today(),
+  /// Format string for displaying the submission date. (see #link("https://typst.app/docs/reference/foundations/datetime/#format")[datetime formats]) -> str
   submission-date-format: "[day].[month].[year]",
+  /// Duration of the thesis processing period in weeks. -> int | none
   processing-period-weeks: none,
+  /// Name of the university supervisor. -> str | none
   university-supervisor: none,
+  /// Name of the training company. -> str | none
   company-name: "Corp SE",
+  /// City where the company is located. -> str | none
   company-city: "Berlin",
+  /// Company logo image. -> content | none
   company-logo: image("../assets/Company-Logo.svg"),
+  /// Department within the company. -> str | none
   company-department: none,
+  /// Name of the company supervisor. -> str | none
   company-supervisor: none,
+  /// Additional arguments passed to the base template (e.g., `title-long`,
+  /// `title-short`, `thesis-type`, `abstracts`, `appendices`, `library`,
+  /// `abbreviations`, `lang`).
   ..args,
+  /// The main document body content. -> content
   body,
 ) = {
   let submission-info = [
@@ -118,7 +155,7 @@
     set grid.cell(align: left, inset: (x: 1em, y: 0.3em))
 
     for a in authors {
-      signature-line(
+      __signature-line(
         author: a,
         date: submission-date,
         date-format: submission-date-format,
@@ -137,12 +174,7 @@
 
   let ai-acknowledgement-empty = false
   let ai-acknowledgement-text = {
-    if not confidentiality-clause {
-      pagebreak()
-    } else {
-      v(2em)
-    }
-
+    pagebreak(weak: true)
     align(center, heading(
       linguify("ai-acknowledgement-heading-dhbw"),
       level: 1,
@@ -173,12 +205,12 @@
   }
 
   show: project.with(
-    logo-left: company-logo,
-    logo-right: image("assets/DHBW-Logo.svg"),
-    authors: authors,
-    submission-info: submission-info,
-    metadata: metadata,
-    preamble: (
+    __logo-left: company-logo,
+    __logo-right: image("assets/DHBW-Logo.svg"),
+    __authors: authors,
+    __submission-info: submission-info,
+    __metadata: metadata,
+    __postamble: (
       statutory-declaration,
       ..if (confidentiality-clause) { (confidentiality-clause-text,) },
       ..if (not ai-acknowledgement-empty) {
