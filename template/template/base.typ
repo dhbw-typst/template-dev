@@ -8,7 +8,7 @@
 #import "@preview/drafting:0.2.2": *
 #import "@preview/linguify:0.5.0": *
 #import "@preview/tidy:0.4.3"
-#import "../utils.typ": __in-outline
+#import "../template/utils.typ": __in-outline
 
 /// Default heading numbering pattern.
 /// -> str

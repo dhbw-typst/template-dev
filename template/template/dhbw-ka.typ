@@ -1,7 +1,7 @@
 // LTeX: enabled=false
 
 #import "base.typ": __signature-line, project
-#import "../utils.typ": styled-table
+#import "../template/utils.typ": styled-table
 #import "@preview/linguify:0.5.0": *
 
 /// Template adapter for DHBW Karlsruhe thesis documents.

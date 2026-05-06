@@ -1,4 +1,4 @@
-#import "../utils.typ": tablefigure
+#import "../lib.typ": tablefigure
 
 = Basic Formatting
 
