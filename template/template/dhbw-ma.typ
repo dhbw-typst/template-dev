@@ -90,7 +90,6 @@
     topic-editing: none,
     research: none,
     design: none,
-    position: "after-confidentiality-clause",
   ),
   /// Additional arguments passed to the base template.
   ..args,
@@ -246,28 +245,16 @@
     signature-image: main-author.signature,
   )
 
-  let ai-tools-declaration-preamble = none
-  let ai-tools-declaration-postamble = none
-
-  if (ai-declaration-form-data.position == "preamble") {
-    ai-tools-declaration-preamble = ai-tools-declaration
-  } else if (ai-declaration-form-data.position == "postamble") {
-    ai-tools-declaration-postamble = ai-tools-declaration
-  }
-
   show: project.with(
     __logo-left: company-logo,
     __logo-right: image("../do_not_touch/DHBW-Logo.svg"),
     __authors: authors,
     __submission-info: submission-info,
     __metadata: metadata,
-    __preamble: (
+    __postamble: (
       statutory-declaration,
       ..if (confidentiality-clause) { (confidentiality-clause-text,) },
-      ai-tools-declaration-preamble,
-    ),
-    __postamble: (
-      ai-tools-declaration-postamble,
+      ai-tools-declaration,
     ),
     ..args,
   )
