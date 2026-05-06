@@ -174,12 +174,7 @@
 
   let ai-acknowledgement-empty = false
   let ai-acknowledgement-text = {
-    if not confidentiality-clause {
-      pagebreak()
-    } else {
-      v(2em)
-    }
-
+    pagebreak(weak: true)
     align(center, heading(
       linguify("ai-acknowledgement-heading-dhbw"),
       level: 1,
@@ -215,7 +210,7 @@
     __authors: authors,
     __submission-info: submission-info,
     __metadata: metadata,
-    __preamble: (
+    __postamble: (
       statutory-declaration,
       ..if (confidentiality-clause) { (confidentiality-clause-text,) },
       ..if (not ai-acknowledgement-empty) {

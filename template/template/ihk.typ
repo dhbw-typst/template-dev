@@ -112,7 +112,7 @@
     __authors: authors,
     __submission-info: submission-info,
     __metadata: metadata,
-    __preamble: (
+    __postamble: (
       statutory-declaration,
       confidentiality-clause,
     ),
