@@ -1,5 +1,5 @@
 // LTeX: enabled=false
-#import "lib.typ": caption-with-source, dhbw-ma-adapter
+#import "template/lib.typ": caption-with-source, dhbw-ma-adapter
 
 #show: dhbw-ma-adapter.with(
   lang: "en",

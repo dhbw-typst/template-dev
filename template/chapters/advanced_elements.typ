@@ -1,5 +1,5 @@
 #import "basic_formatting.typ": typst-preview
-#import "../lib.typ": caption-with-source
+#import "../template/lib.typ": caption-with-source
 
 = Advanced Elements
 
@@ -11,7 +11,7 @@ Inserting figures and code blocks into your Typst document enhances its informat
 === Image Figures
 #typst-preview(
   "Image Figures in Typst",
-  "#import \"../lib.typ\": caption-with-source
+  "#import \"../template/lib.typ\": caption-with-source
 #figure(
   image(\"../assets/Company-Logo.svg\"),
   caption: caption-with-source(\"Comapny Logo\", [@electronic]),
@@ -24,7 +24,7 @@ Similar to images you can insert table figures. See more table examples and more
 
 #typst-preview(
   "Table Figures in Typst",
-  "#import \"../lib.typ\": tablefigure
+  "#import \"../template/lib.typ\": tablefigure
 #tablefigure(
   columns: 3,
   caption: [Example table],
@@ -40,7 +40,7 @@ Similar to images you can insert table figures. See more table examples and more
 
 === Code Snippets
 
-#import "../lib.typ": codefigure, codefigurefile
+#import "../template/lib.typ": codefigure, codefigurefile
 
 This template uses #link("https://typst.app/universe/package/codly")[Codly] for code snippets. Look at their documentation on how to further customize and control your code blocks.
 
@@ -50,7 +50,7 @@ Use `codefigure` to display a code figure from the provided code.
 
 #typst-preview(
   "Code Figures in Typst",
-  "#import \"../lib.typ\": codefigure
+  "#import \"../template/lib.typ\": codefigure
 
 #codefigure(caption: [My Code])[```rust
 fn main() {
@@ -63,7 +63,7 @@ Use `codefigurefile` to create a code snippet figure from the content of a file.
 
 #typst-preview(
   "Code Figure loading from file",
-  "#import \"../lib.typ\": codefigurefile
+  "#import \"../template/lib.typ\": codefigurefile
 
 #codefigurefile(\"../assets/example-code.typ\", caption: [My Code from a file])",
 )

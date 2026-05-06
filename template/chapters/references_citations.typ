@@ -1,4 +1,4 @@
-#import "../lib.typ": codefigure
+#import "../template/lib.typ": codefigure
 #import "basic_formatting.typ": typst-preview
 = References and Citations
 
@@ -19,7 +19,7 @@ If you use the provided `codefigure` function, you can specify a reference name 
 
 #typst-preview(
   "Code Figure Referencing in typst",
-  "#import \"../lib.typ\": codefigure
+  "#import \"../template/lib.typ\": codefigure
 #codefigure(caption: [Code with Reference], reference: \"my-rust-code\")[```rust
   fn main() {
     panic!(\"Hilfe!\");

@@ -1,5 +1,5 @@
 // LTeX: enabled=false
-#import "lib.typ": caption-with-source, ihk-adapter
+#import "template/lib.typ": caption-with-source, ihk-adapter
 
 #show: ihk-adapter.with(
   lang: "de",
