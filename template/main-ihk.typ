@@ -62,6 +62,14 @@
     (key: "NN", short: "NN", long: "Neural Network"),
     (key: "SG", short: "SG", long: "Singular"),
   ),
+
+  // Specify glossary terms here for term definitions (not abbreviations).
+  // The key is used to reference the term with @term or #gls("term").
+  // The short form is the term, and long form is the definition.
+  // Set to empty array () if you don't need a glossary.
+  glossary: (
+    (key: "LLM", short:"LLM", long: "Large Language Model", description:"A large language model mostly generates text. A lot of text."),
+  ),
 )
 
 // You can now start writing :)
