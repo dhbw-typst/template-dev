@@ -45,7 +45,7 @@
   /// City where the company is located. -> str
   company-city: "Berlin",
   /// Company logo image. -> content | none
-  company-logo: image("../assets/Company-Logo.svg"),
+  company-logo: none,
   /// Department within the company. -> str | none
   company-department: none,
   /// Name of the company supervisor. -> str | none
