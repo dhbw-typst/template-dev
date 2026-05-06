@@ -1,7 +1,4 @@
 // LTeX: enabled=false
-#import "@preview/linguify:0.5.0": *
-
-#import "@preview/tidy:0.4.3"
 
 /// Creates a figure for source code with a caption.
 ///
@@ -295,5 +292,7 @@
 }
 
 #let __linguify-content(..args) = {
+  import "@preview/linguify:0.5.0": linguify-raw
+
   context eval(linguify-raw(..args), mode: "markup")
 }
