@@ -46,4 +46,14 @@ Specify acronyms in the project configuration to use them throughout your docume
   "I don't understand @NN or @NN:pl and never will understand.",
 )
 
-On the first usage, the full form of the acronym is displayed, and on subsequent usages, only the acronym is shown. Additionally, used acronyms are displayed in the glossary section in the preamble.
+On the first usage, the full form of the acronym is displayed, and on subsequent usages, only the acronym is shown. Additionally, used acronyms are displayed in the acronyms section in the preamble.
+
+== Glossary
+Specify glossary entries in the project configuration to define technical terms with detailed descriptions. Unlike acronyms, glossary entries provide longer explanations and can include multiple sentences.
+
+#typst-preview(
+  "Glossary References in Typst",
+  "When working with @LLM:pl, understanding the project you are working on is crucial.",
+)
+
+On the first usage, the full description of the glossary term is displayed, and on subsequent usages, only the term is shown. Additionally, used glossary terms are displayed in the glossary section in the preamble.
