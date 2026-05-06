@@ -25,6 +25,7 @@
   processing-period-weeks: 12,
   company-department: "Human Resources",
   company-supervisor: "Max Mustermann",
+  company-logo: image("assets/Company-Logo.svg"),
 
   // appendices: usage: (
   //   title: "Title",
