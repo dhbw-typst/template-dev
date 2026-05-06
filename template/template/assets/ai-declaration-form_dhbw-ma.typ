@@ -309,5 +309,4 @@
   design: "Textgenerierung, Korrektur",
   signature-city: "Mannheim",
   signature-date: datetime(year: 2026, month: 06, day: 10),
-  signature-image: image("../assets/example-signature.png"),
 )

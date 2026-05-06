@@ -1,4 +1,4 @@
-#import "../utils.typ": (
+#import "../template/lib.typ": (
   styled-table, table-hline-spaced, tablefigure, tablefigure-raw,
 )
 
