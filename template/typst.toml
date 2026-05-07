@@ -1,0 +1,12 @@
+[package]
+compiler = "0.14.0"
+name = "dhbw-oderso"
+version = "1.0.0"
+entrypoint = "template/lib.typ"
+authors = ["dhbw-typst - a group of motivated DHBW students"]    # TODO
+license = "MIT"
+description = "Calculate elementary arithmetics with functions." # TODO
+repository = "https://github.com/dhbw-typst/oderso-template-dev"
+keywords = []                                                    # TODO
+categories = []                                                  # TODO
+disciplines = []                                                 # TODO
