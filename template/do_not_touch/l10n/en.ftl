@@ -20,6 +20,7 @@ date-of-signature = Date
 signature = Signature
 
 confidentiality-agreement = Confidentiality Agreement
+confidentiality-stamp = CONFIDENTIAL
 
 tool = Tool
 usage-description = Usage Description
