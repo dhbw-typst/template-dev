@@ -40,10 +40,10 @@ Typst supports references to external sources, such as books, articles, and webs
 
 == Acronyms and Glossary
 
-This template supports both acronyms for abbreviations and a glossary for term definitions.
+This template supports both acronyms for abbreviations and a glossary for term definitions. Both are implemented using the `glossarium` package, which can be found here: #link("https://typst.app/universe/package/glossarium/").
 
 === Acronyms
-You can define acronyms in the project configuration. Use the `@acr` function to reference an acronym and `@acr:pl` for its plural form. On the first usage, the full long form is displayed. On subsequent usages, only the short form is shown.
+You can define acronyms in the project configuration. We recommend using this to define abbreviations via the `short` parameter. Use the `@acr` function to reference an acronym and `@acr:pl` for its plural form. On the first usage, the full long form is displayed. On subsequent usages, only the short form is shown.
 
 All used acronyms will be automatically listed in the "List of Abbreviations".
 
@@ -53,7 +53,7 @@ All used acronyms will be automatically listed in the "List of Abbreviations".
 )
 
 === Glossary
-For more detailed explanations of technical terms, you can add entries to the glossary in the project configuration. Unlike acronyms, glossary entries provide longer descriptions. You can also define glossary entries with short forms. These entries are displayed similarly to acronyms.
+For more detailed explanations of technical terms, you can add entries to the glossary in the project configuration. We recommend that you only specify the `long` form and a `description` here, but this is freely customizable.
 
 #typst-preview(
   "Glossary Entries in Typst",
