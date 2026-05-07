@@ -1,8 +1,6 @@
 name: Code Analysis
 on:
   pull_request:
-    branches:
-      - main
   workflow_dispatch:
 jobs:
   discover_files:
@@ -100,10 +98,10 @@ jobs:
       - name: Build PDF on PR branch
         run: |
           ./typst compile new/${{ matrix.path }} new.pdf
-      - name: Checkout main branch
+      - name: Checkout base branch
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          ref: main
+          ref: ${{ github.base_ref || 'main' }}
           path: old
       - name: Build PDF on main branch
         run: |
@@ -155,7 +153,7 @@ jobs:
           BODY="> [!NOTE]"
           BODY="${BODY}\n> **PDF Differences Detected**"
           BODY="${BODY}\n>"
-          BODY="${BODY}\n> The following PDF outputs have changed between the main branch and this PR:"
+          BODY="${BODY}\n> The following PDF outputs have changed between the base branch and this PR:"
           BODY="${BODY}\n>"
 
           for marker_dir in markers/diff-marker-*/; do
