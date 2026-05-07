@@ -233,6 +233,7 @@
 
   // Equation figures
   set math.equation(numbering: "(1)")
+  // follow IEEE style for equation references: `(1)` instead of `equation 1`
   show ref: it => {
     if it.element != none and it.element.func() == math.equation {
       numbering("(1)", ..counter(math.equation).at(it.target))
