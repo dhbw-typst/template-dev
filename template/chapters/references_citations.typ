@@ -53,7 +53,7 @@ All used acronyms will be automatically listed in the "List of Abbreviations".
 )
 
 === Glossary
-For more detailed explanations of technical terms, you can add entries to the glossary in the project configuration. Unlike acronyms, glossary entries provide longer descriptions.
+For more detailed explanations of technical terms, you can add entries to the glossary in the project configuration. Unlike acronyms, glossary entries provide longer descriptions. You can also define glossary entries with short forms. These entries are displayed similarly to acronyms.
 
 #typst-preview(
   "Glossary Entries in Typst",

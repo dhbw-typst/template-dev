@@ -132,8 +132,9 @@
   ),
 
   // Specify glossary terms here for term definitions (not abbreviations).
-  // The key is used to reference the term with @term or #gls("term").
-  // The short form is the term, and long form is the definition.
+  // The key is used to reference the term.
+  // The long form is the term and the short form is the abbreviation (only if you need it).
+  // The description is used for the detailed explanation of the term.
   // Set to empty array () if you don't need a glossary.
   glossary: (
     (
