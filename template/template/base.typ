@@ -235,6 +235,17 @@
   // Allow code blocks to span multiple pages
   show figure.where(kind: raw): set block(breakable: true)
 
+  // Equation figures
+  set math.equation(numbering: "(1)")
+  // follow IEEE style for equation references: `(1)` instead of `equation 1`
+  show ref: it => {
+    if it.element != none and it.element.func() == math.equation {
+      numbering("(1)", ..counter(math.equation).at(it.target))
+    } else {
+      it
+    }
+  }
+
   // Coversheet
   grid(
     rows: (1fr, auto, 1fr),
