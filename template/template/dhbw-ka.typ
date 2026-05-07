@@ -167,6 +167,7 @@
 
   let confidentiality-clause-text = {
     pagebreak()
+    [#[] <__confidentiality-clause>]
     align(center, heading(linguify("confidentiality-agreement"), level: 1))
 
     linguify("confidentiality-agreement-note-dhbw")
@@ -210,6 +211,7 @@
     __authors: authors,
     __submission-info: submission-info,
     __metadata: metadata,
+    confidentiality-clause: confidentiality-clause,
     __postamble: (
       statutory-declaration,
       ..if (confidentiality-clause) { (confidentiality-clause-text,) },
