@@ -38,22 +38,24 @@ Typst supports references to external sources, such as books, articles, and webs
   Just Because You're Allowed To Use Magic Now Does Not Mean You Have To Whip Your Wands Out For Everything!]",
 )
 
-== Acronyms
-Specify acronyms in the project configuration to use them throughout your document. You can use the `@acr` function to reference acronyms and the `@acr:pl` function to reference their plural form.
+== Acronyms and Glossary
+
+This template supports both acronyms for abbreviations and a glossary for term definitions.
+
+=== Acronyms
+You can define acronyms in the project configuration. Use the `@acr` function to reference an acronym and `@acr:pl` for its plural form. On the first usage, the full long form is displayed. On subsequent usages, only the short form is shown.
+
+All used acronyms will be automatically listed in the "List of Abbreviations".
 
 #typst-preview(
   "Acronyms in Typst",
   "I don't understand @NN or @NN:pl and never will understand.",
 )
 
-On the first usage, the full form of the acronym is displayed, and on subsequent usages, only the acronym is shown. Additionally, used acronyms are displayed in the abbreviations section in the preamble.
-
-== Glossary
-Specify glossary entries in the project configuration to define technical terms with detailed descriptions. Unlike acronyms, glossary entries provide longer explanations and can include multiple sentences.
+=== Glossary
+For more detailed explanations of technical terms, you can add entries to the glossary in the project configuration. Unlike acronyms, glossary entries provide longer descriptions.
 
 #typst-preview(
-  "Glossary References in Typst",
-  "When working with @LLM:pl, understanding the project you are working on is crucial.",
+  "Glossary Entries in Typst",
+  "When working with @typ, I don't have to reinvent the wheel over and over again.",
 )
-
-On the first usage, the full description of the glossary term is displayed, and on subsequent usages, only the term is shown. Additionally, used glossary terms are displayed in the glossary section in the preamble.
