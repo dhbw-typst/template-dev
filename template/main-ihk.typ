@@ -5,6 +5,9 @@
 #show: ihk-adapter.with(
   lang: "de",
 
+  // Set to false if you do not need a confidentiality clause
+  confidentiality-clause: true,
+
   title-long: "Writing in Typst about a long, very scientific topic",
   title-short: "Writing in Typst",
   thesis-type: "Abschlussprojekt",
