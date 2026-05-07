@@ -121,7 +121,12 @@
   // The short form is the term, and long form is the definition.
   // Set to empty array () if you don't need a glossary.
   glossary: (
-    (key: "typ", short:none, long: "Typst", description:"Typst is a new markup-based typesetting system that is designed to be as powerful as LaTeX while being much easier to learn and use."),
+    (
+      key: "typ",
+      short: none,
+      long: "Typst",
+      description: "Typst is a new markup-based typesetting system that is designed to be as powerful as LaTeX while being much easier to learn and use.",
+    ),
   ),
 )
 
