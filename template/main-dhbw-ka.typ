@@ -47,7 +47,7 @@
       firstname: "Erika",
       lastname: "Musterfrau",
       matriculation-number: "1234567",
-      course: "TINF23B1",
+      course: "TINF24B1",
     ),
   ),
 
