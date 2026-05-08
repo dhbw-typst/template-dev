@@ -33,6 +33,7 @@ abstract = Abstract
 list-of-notes = List of Notes
 table-of-contents = Table of Contents
 list-of-abbreviations = List of Abbreviations
+list-of-glossary = Glossary
 list-of-figures = List of Figures
 list-of-tables = List of Tables
 list-of-code = List of Code
