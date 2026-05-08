@@ -31,12 +31,12 @@ abstract = Zusammenfassung
 # lists headers
 list-of-notes = Notizverzeichnis
 table-of-contents = Inhaltsverzeichnis
-list-of-abbreviations = Abkürzungsverzeichnis
-list-of-glossary = Glossar
+abbreviations = Abkürzungsverzeichnis
+glossary = Glossar
 list-of-figures = Abbildungsverzeichnis
 list-of-tables = Tabellenverzeichnis
 list-of-code = Quellcodeverzeichnis
-list-of-bibliography = Literaturverzeichnis
+bibliography = Literaturverzeichnis
 
 # appendix
 appendix = Anhang

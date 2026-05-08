@@ -31,12 +31,12 @@ abstract = Abstract
 # lists headers
 list-of-notes = List of Notes
 table-of-contents = Table of Contents
-list-of-abbreviations = List of Abbreviations
-list-of-glossary = Glossary
+abbreviations = Abbreviations
+glossary = Glossary
 list-of-figures = List of Figures
 list-of-tables = List of Tables
 list-of-code = List of Code
-list-of-bibliography = List of Bibliography
+bibliography = Bibliography
 
 # appendix
 appendix = Appendix

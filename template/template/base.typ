@@ -390,7 +390,7 @@
 
   bibliography(
     "../" + library,
-    title: __linguify-content("list-of-bibliography"),
+    title: __linguify-content("bibliography"),
   )
 
   // lists and declarations (between content and appendix)
@@ -400,14 +400,14 @@
     // index of abbreviations
     if abbreviations.len() > 0 {
       pagebreak()
-      heading(__linguify-content("list-of-abbreviations"))
+      heading(__linguify-content("abbreviations"))
       print-glossary(abbreviations, deduplicate-back-references: true)
     }
 
     // index of glossary terms
     if glossary.len() > 0 {
       pagebreak()
-      heading(__linguify-content("list-of-glossary"))
+      heading(__linguify-content("glossary"))
       print-glossary(glossary, deduplicate-back-references: true)
     }
 
