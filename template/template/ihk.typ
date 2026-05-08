@@ -120,7 +120,7 @@
     __authors: authors,
     __submission-info: submission-info,
     __metadata: metadata,
-    confidentiality-clause: confidentiality-clause,
+    __confidentiality-clause: confidentiality-clause,
     __postamble: (
       statutory-declaration,
       ..if (confidentiality-clause) { (confidentiality-clause-text,) },
