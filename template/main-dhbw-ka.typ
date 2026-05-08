@@ -39,7 +39,7 @@
       firstname: "John",
       lastname: "Doe",
       matriculation-number: "0000000",
-      course: "TINF23B2",
+      course: "TINF24B2",
       // remove if you do not have a signature image
       signature: image("assets/example-signature.png"),
     ), // make sure to keep this comma after the first author if there is only one author!

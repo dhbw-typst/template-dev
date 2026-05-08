@@ -75,6 +75,7 @@
   /// The main document body content. -> content
   body,
 ) = {
+  // Submission Information
   let submission-info = [
     #__linguify-content("as-part-of-examination-dhbw")
 
@@ -87,6 +88,8 @@
       city: linguify-raw("ka"),
     ))
   ]
+
+  // Metadata
   let metadata = (
     __linguify-content("submission-date"),
     submission-date.display(submission-date-format),
@@ -113,6 +116,44 @@
     __linguify-content("supervisor-at-university"),
     university-supervisor,
   )
+
+  // AI-Declaration
+  let ai-acknowledgement-empty = false
+  let ai-acknowledgement-text = {
+    pagebreak(weak: true)
+    align(center, heading(
+      __linguify-content("ai-acknowledgement-heading-dhbw"),
+      level: 1,
+    ))
+
+    let table-cells = ()
+
+    for tool-usage in ai-acknowledgement {
+      if tool-usage.tool == none or tool-usage.usage == none {
+        continue
+      }
+
+      table-cells.push(tool-usage.tool)
+      table-cells.push(tool-usage.usage)
+    }
+
+    if table-cells.len() == 0 {
+      ai-acknowledgement-empty = true
+    }
+
+    align(center, styled-table(
+      columns: (auto, 1fr),
+      table-content: (
+        table.header(
+          __linguify-content("tool"),
+          __linguify-content("usage-description"),
+        ),
+        ..table-cells,
+      ),
+    ))
+  }
+
+  // Statutory Declaration
   let statutory-declaration = {
     pagebreak(weak: true)
     // Get course year of first author
@@ -158,6 +199,11 @@
       )
     }
 
+    if course-year >= 24 and not ai-acknowledgement-empty {
+      linebreak()
+      __linguify-content("statutory-declaration-note-dhbw-ai")
+    }
+
     set grid.cell(align: left, inset: (x: 1em, y: 0.3em))
 
     for a in authors {
@@ -171,6 +217,7 @@
     }
   }
 
+  // Confidentiality Clause
   let confidentiality-clause-text = {
     pagebreak()
     align(center, heading(
@@ -179,41 +226,6 @@
     ))
 
     __linguify-content("confidentiality-agreement-note-dhbw")
-  }
-
-  let ai-acknowledgement-empty = false
-  let ai-acknowledgement-text = {
-    pagebreak(weak: true)
-    align(center, heading(
-      __linguify-content("ai-acknowledgement-heading-dhbw"),
-      level: 1,
-    ))
-
-    let table-cells = ()
-
-    for tool-usage in ai-acknowledgement {
-      if tool-usage.tool == none or tool-usage.usage == none {
-        continue
-      }
-
-      table-cells.push(tool-usage.tool)
-      table-cells.push(tool-usage.usage)
-    }
-
-    if table-cells.len() == 0 {
-      ai-acknowledgement-empty = true
-    }
-
-    align(center, styled-table(
-      columns: (auto, 1fr),
-      table-content: (
-        table.header(
-          __linguify-content("tool"),
-          __linguify-content("usage-description"),
-        ),
-        ..table-cells,
-      ),
-    ))
   }
 
   show: project.with(
