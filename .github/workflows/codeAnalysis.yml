@@ -122,15 +122,6 @@ jobs:
           name: diff-pdf-${{ matrix.file }}
           path: diff-${{ matrix.file }}.pdf
           archive: false
-      - name: Upload diff marker
-        if: steps.diff_check.outcome == 'failure'
-        run: echo "true" > diff-marker.txt
-      - name: Upload diff marker artifact
-        if: steps.diff_check.outcome == 'failure'
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: diff-marker-${{ matrix.file }}
-          path: diff-marker.txt
 
   comment_pdf_diff:
     name: Comment PDF diff results
@@ -140,12 +131,12 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: Download diff markers
+      - name: Download diff PDFs
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         continue-on-error: true
         with:
-          pattern: diff-marker-*
-          path: markers
+          pattern: diff-pdf-*
+          path: diffs
       - name: Build comment body
         id: build_comment
         run: |
@@ -156,9 +147,9 @@ jobs:
           BODY="${BODY}\n> The following PDF outputs have changed between the base branch and this PR:"
           BODY="${BODY}\n>"
 
-          for marker_dir in markers/diff-marker-*/; do
-            if [[ -d "$marker_dir" ]]; then
-              file_name=$(basename "$marker_dir" | sed 's/^diff-marker-//')
+          for diff_dir in diffs/diff-pdf-*/; do
+            if [[ -d "$diff_dir" ]]; then
+              file_name=$(basename "$diff_dir" | sed 's/^diff-pdf-//')
               BODY="${BODY}\n> - \`${file_name}\` — download [\`diff-pdf-${file_name}\`](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
               HAS_DIFF=true
             fi
