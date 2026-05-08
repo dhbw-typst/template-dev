@@ -134,6 +134,10 @@
   /// #link("https://typst.app/universe/package/glossarium/")[glossarium package]
   /// for the expected format. -> array
   abbreviations: (),
+  /// List of glossary entries for term explanations (not abbreviations). See the
+  /// #link("https://typst.app/universe/package/glossarium/")[glossarium package]
+  /// for the expected format. -> array
+  glossary: (),
   /// Whether the content page numbering should include total pages ("3 / 24") or not ("3"). -> bool
   numbering-show-total: false,
   body,
@@ -338,6 +342,11 @@
     register-glossary(abbreviations)
   }
 
+  // register glossary entries before content so references resolve
+  if glossary.len() > 0 {
+    register-glossary(glossary)
+  }
+
   {
     // display header
     set page(
@@ -393,6 +402,13 @@
       pagebreak()
       heading(__linguify-content("list-of-abbreviations"))
       print-glossary(abbreviations, deduplicate-back-references: true)
+    }
+
+    // index of glossary terms
+    if glossary.len() > 0 {
+      pagebreak()
+      heading(__linguify-content("list-of-glossary"))
+      print-glossary(glossary, deduplicate-back-references: true)
     }
 
     // only display certain outlines if elements for it exist
