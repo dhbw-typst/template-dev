@@ -147,9 +147,10 @@ jobs:
           BODY="${BODY}\n> The following PDF outputs have changed between the base branch and this PR:"
           BODY="${BODY}\n>"
 
-          for diff_dir in diffs/diff-pdf-*/; do
-            if [[ -d "$diff_dir" ]]; then
-              file_name=$(basename "$diff_dir" | sed 's/^diff-pdf-//')
+          for diff in diffs/diff-pdf-*; do
+            if [[ -f "$diff" ]]; then
+              file_name=$(basename "$diff" | sed 's/^diff-pdf-//')
+              echo "Found diff for ${file_name}"
               BODY="${BODY}\n> - \`${file_name}\` — download [\`diff-pdf-${file_name}\`](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
               HAS_DIFF=true
             fi
