@@ -20,6 +20,7 @@ date-of-signature = Datum
 signature = Unterschrift
 
 confidentiality-agreement = Sperrvermerk
+confidentiality-stamp = VERTRAULICH
 
 tool = Werkzeug
 usage-description = Beschreibung der Nutzung
