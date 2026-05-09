@@ -147,8 +147,9 @@ jobs:
           BODY="${BODY}\n> The following PDF outputs have changed between the base branch and this PR:"
           BODY="${BODY}\n>"
 
-          ls -al diffs/diff-* 2>/dev/null || true
+          ls -al diffs/ 2>/dev/null || true
           for diff in diffs/diff-*; do
+            echo $diff
             if [[ -f "$diff" ]]; then
               file_name=$(basename "$diff" | sed 's/^diff-//')
               echo "Found diff for ${file_name}"
