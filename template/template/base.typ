@@ -195,6 +195,9 @@
     display-icon: false,
     display-name: false,
     number-align: right + top,
+    // Styles references to produce "Code <x> at <label>" and "Code <x> at line <y>"
+    reference-sep: [ at ],
+    reference-number-format: (..n) => [line #numbering("1", ..n)],
   )
 
   // set table numbering to roman
