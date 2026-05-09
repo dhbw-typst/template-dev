@@ -148,16 +148,15 @@ jobs:
           BODY="${BODY}\n> The following PDF outputs have changed between the base branch and this PR:"
           BODY="${BODY}\n>"
 
-          ls -R diffs/ 2>/dev/null || true
           for diff in diffs/diff-*; do
-            if [ -e "$diff" ]; then
-              echo $diff
-              ls -al "$diff" 2>/dev/null || true
-              file_name=$(basename "$diff" | sed 's/^diff-//')
-              echo "Found diff for ${file_name}"
-              BODY="${BODY}\n> - \`${file_name}\` — download [\`diff-${file_name}\`](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
-              HAS_DIFF=true
+            if [[ ! -f "$diff" ]]; then
+              continue
             fi
+
+            file_name=$(basename "$diff" | sed 's/^diff-//')
+            echo "Found diff for ${file_name}"
+            BODY="${BODY}\n> - \`${file_name}\` — download [\`diff-${file_name}\`](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+            HAS_DIFF=true
           done
 
           echo "has_diff=${HAS_DIFF}" >> "$GITHUB_OUTPUT"
