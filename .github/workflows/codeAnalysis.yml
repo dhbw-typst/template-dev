@@ -148,13 +148,15 @@ jobs:
           BODY="${BODY}\n>"
 
           ls -al diffs/ 2>/dev/null || true
-          tree diffs/ || true
           for diff in diffs/diff-*; do
-            echo $diff
-            file_name=$(basename "$diff" | sed 's/^diff-//')
-            echo "Found diff for ${file_name}"
-            BODY="${BODY}\n> - \`${file_name}\` — download [\`diff-${file_name}\`](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
-            HAS_DIFF=true
+            if [ -e "$diff" ]; then
+              echo $diff
+              ls -al "$diff" 2>/dev/null || true
+              file_name=$(basename "$diff" | sed 's/^diff-//')
+              echo "Found diff for ${file_name}"
+              BODY="${BODY}\n> - \`${file_name}\` — download [\`diff-${file_name}\`](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+              HAS_DIFF=true
+            fi
           done
 
           echo "has_diff=${HAS_DIFF}" >> "$GITHUB_OUTPUT"
