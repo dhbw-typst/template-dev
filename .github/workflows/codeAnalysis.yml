@@ -148,6 +148,7 @@ jobs:
           BODY="${BODY}\n>"
 
           ls -al diffs/ 2>/dev/null || true
+          tree diffs/ || true
           for diff in diffs/diff-*; do
             echo $diff
             file_name=$(basename "$diff" | sed 's/^diff-//')
