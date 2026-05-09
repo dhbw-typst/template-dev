@@ -137,6 +137,7 @@ jobs:
         with:
           pattern: diff-*
           path: diffs
+          merge-multiple: true
       - name: Build comment body
         id: build_comment
         run: |
@@ -147,7 +148,7 @@ jobs:
           BODY="${BODY}\n> The following PDF outputs have changed between the base branch and this PR:"
           BODY="${BODY}\n>"
 
-          ls -al diffs/ 2>/dev/null || true
+          ls -R diffs/ 2>/dev/null || true
           for diff in diffs/diff-*; do
             if [ -e "$diff" ]; then
               echo $diff
