@@ -118,7 +118,9 @@
   )
 
   // AI-Declaration
-  let ai-acknowledgement-empty = false
+  let ai-acknowledgement = ai-acknowledgement.filter(ack => (
+    ack.tool != none and ack.usage != none
+  ))
   let ai-acknowledgement-text = {
     pagebreak(weak: true)
     align(center, heading(
@@ -126,20 +128,9 @@
       level: 1,
     ))
 
-    let table-cells = ()
-
-    for tool-usage in ai-acknowledgement {
-      if tool-usage.tool == none or tool-usage.usage == none {
-        continue
-      }
-
-      table-cells.push(tool-usage.tool)
-      table-cells.push(tool-usage.usage)
-    }
-
-    if table-cells.len() == 0 {
-      ai-acknowledgement-empty = true
-    }
+    let table-cells = ai-acknowledgement.fold((), (acc, (tool, usage)) => (
+      acc + (tool, usage)
+    ))
 
     align(center, styled-table(
       columns: (auto, 1fr),
@@ -199,7 +190,7 @@
       )
     }
 
-    if course-year >= 24 and not ai-acknowledgement-empty {
+    if course-year >= 24 and ai-acknowledgement.len() > 0 {
       linebreak()
       __linguify-content("statutory-declaration-note-dhbw-ai")
     }
@@ -239,7 +230,7 @@
     __postamble: (
       statutory-declaration,
       ..if (confidentiality-clause) { (confidentiality-clause-text,) },
-      ..if (not ai-acknowledgement-empty) {
+      ..if (ai-acknowledgement.len() > 0) {
         (ai-acknowledgement-text,)
       },
     ),
