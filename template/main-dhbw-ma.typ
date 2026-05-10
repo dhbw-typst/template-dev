@@ -146,6 +146,8 @@
   ),
 )
 
+Hello world as well!
+
 // You can now start writing :)
 
 #include "chapters/introduction.typ"
