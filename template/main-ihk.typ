@@ -83,8 +83,6 @@
 
 // You can now start writing :)
 
-Hello World
-
 #include "chapters/introduction.typ"
 #include "chapters/basic_formatting.typ"
 #include "chapters/advanced_elements.typ"
