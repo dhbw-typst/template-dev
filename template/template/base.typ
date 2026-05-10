@@ -156,10 +156,10 @@
   set text(lang: lang)
 
   // font setup (LaTeX Look: 'New Computer Modern')
-  set text(font: "New Computer Modern", size: 12pt, top-edge: "ascender")
+  set text(font: "New Computer Modern", size: 12pt, bottom-edge: "descender")
 
   // justify content
-  set par(justify: true, leading: 0.5em, spacing: 1.2em)
+  set par(justify: true, leading: 0.85em, spacing: 1.38em)
 
   // tables settings
   show table: set par(justify: false)
