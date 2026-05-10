@@ -314,8 +314,8 @@
   for a in abstracts {
     let (abstract-lang, abstract-lang-long, abstract-body) = a
     pagebreak(weak: true)
-    align(center + horizon)[
-      #heading(outlined: false, numbering: none, [#text(
+    align(center + horizon, {
+      heading(outlined: false, numbering: none, [#text(
           0.85em,
           smallcaps(__linguify-content("abstract")),
         )\ #text(
@@ -324,9 +324,9 @@
           style: "italic",
           [\- #abstract-lang-long -],
         )])
-      #text(lang: abstract-lang, abstract-body)
-      #v(20%)
-    ]
+      align(left, text(lang: abstract-lang, abstract-body))
+      v(20%)
+    })
   }
 
   // captions with caption_with_source shouldn't show source in outline
