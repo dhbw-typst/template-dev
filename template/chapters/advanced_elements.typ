@@ -51,7 +51,7 @@ console.log(\"Hello World\")
 ```",
 )
 
-You can also wrap a code block in a figure to create a code figure:
+You can also wrap a code block in a figure to create a code figure, which will be listed in "List of Code":
 
 #typst-preview(
   "Code Figures in Typst",
@@ -71,6 +71,8 @@ If you want to create a _normal_ figure containing raw text that should not be c
 Hello World
 ```]",
 )
+
+With `kind: image`, the figure is not listed in "List of Code", but in "List of Figures" instead.
 
 == Math
 The math syntax is a loose interpretation of LaTeX, allowing you to create complex mathematical equations with ease.
