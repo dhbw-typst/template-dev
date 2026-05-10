@@ -40,33 +40,39 @@ Similar to images you can insert table figures. See more table examples and more
 
 === Code Snippets
 
-#import "../template/lib.typ": codefigure, codefigurefile
-
 This template uses #link("https://typst.app/universe/package/codly")[Codly] for code snippets. Look at their documentation on how to further customize and control your code blocks.
 
-Besides that the template provides two functions to create code snippet figures that get listed in a source code listing: `codefigure` and `codefigurefile`.
+Code blocks can be created using three backticks:
 
-Use `codefigure` to display a code figure from the provided code.
+#typst-preview(
+  "Code Blocks in Typst",
+  "```js
+console.log(\"Hello World\")
+```",
+)
+
+You can also wrap a code block in a figure to create a code figure, which will be listed in "List of Code":
 
 #typst-preview(
   "Code Figures in Typst",
-  "#import \"../template/lib.typ\": codefigure
-
-#codefigure(caption: [My Code])[```rust
+  "#figure(caption: [My Code])[```rust
 fn main() {
   println!(\"Hello World!\");
 }
 ```]",
 )
 
-Use `codefigurefile` to create a code snippet figure from the content of a file. Note that the provided file is searched relative to the location of your `main.typ` file.
+If you want to create a _normal_ figure containing raw text that should not be classified as a code figure (for example command line output), set the `kind` property to `image` explicitly:
 
 #typst-preview(
-  "Code Figure loading from file",
-  "#import \"../template/lib.typ\": codefigurefile
-
-#codefigurefile(\"../assets/example-code.typ\", caption: [My Code from a file])",
+  "Non-Code-Code-Figure in Typst",
+  "#figure(caption: [My Command Line Output], kind: image)[```
+> echo \"Hello World\"
+Hello World
+```]",
 )
+
+With `kind: image`, the figure is not listed in "List of Code", but in "List of Figures" instead.
 
 == Math
 The math syntax is a loose interpretation of LaTeX, allowing you to create complex mathematical equations with ease.
