@@ -164,7 +164,6 @@
   // tables settings
   show table: set par(justify: false)
 
-
   // heading setup
   set heading(numbering: __heading-numbering)
 

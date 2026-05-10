@@ -1,4 +1,7 @@
-#set page(margin: (y: 2.5cm, rest: 0cm), background: image("word-comparison.jpg"))
+#set page(
+  margin: (y: 2.5cm, rest: 0cm),
+  background: image("word-comparison.jpg"),
+)
 
 
 #align(center, heading(numbering: none, "Word-Typst comparison"))
@@ -20,7 +23,11 @@
       New Paragraph
     ],
     [
-      #set text(size: 12pt, font: "New Computer Modern", bottom-edge: "descender")
+      #set text(
+        size: 12pt,
+        font: "New Computer Modern",
+        bottom-edge: "descender",
+      )
       #set par(leading: 0.85em, spacing: 1.38em)
       #v(12pt)
 
