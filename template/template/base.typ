@@ -197,6 +197,8 @@
     number-align: right + top,
   )
 
+  show figure.where(kind: raw): set figure(supplement: "Code")
+
   // set table numbering to roman
   show figure.where(kind: table): set figure(numbering: "I")
 
