@@ -42,7 +42,7 @@ Similar to images you can insert table figures. See more table examples and more
 
 This template uses #link("https://typst.app/universe/package/codly")[Codly] for code snippets. Look at their documentation on how to further customize and control your code blocks.
 
-Code figures can be created using three backticks:
+Code blocks can be created using three backticks:
 
 #typst-preview(
   "Code Blocks in Typst",
