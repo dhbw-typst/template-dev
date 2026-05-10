@@ -1,4 +1,3 @@
-#import "../template/lib.typ": codefigure
 #import "basic_formatting.typ": typst-preview
 = References and Citations
 
@@ -14,20 +13,18 @@ Some important text
 More important text, just like @section-1",
 )
 
-== Code Blocks
-If you use the provided `codefigure` function, you can specify a reference name via the `reference` parameter. This allows you to reference the code block later in the document.
+== Figures
+
+Add a `<label>` after a figure to reference it using `@label`.
 
 #typst-preview(
-  "Code Figure Referencing in typst",
-  "#import \"../template/lib.typ\": codefigure
-#codefigure(caption: [Code with Reference], reference: \"my-rust-code\")[```rust
-  fn main() {
-    panic!(\"Hilfe!\");
-  }
-  ```]
-
-  Look at my code in @my-rust-code!",
+  "Figure with Label",
+  "#figure(caption: [Reference me with `reference-figure`], image(\"../assets/Company-Logo.svg\"))<reference-figure>",
 )
+
+@reference-figure shows the company logo again.
+
+When using `tablefigure` and `tablefigure-raw` to create a table figure, you can use the `reference` property to reference the created table just like above.
 
 == Bibliography
 Typst supports references to external sources, such as books, articles, and websites. You can include a `.yaml` or `.bib` file with your references and use the `cite()` function to reference them in your document. Again, you can use the same syntax sugar `@<ref>` to cite.
