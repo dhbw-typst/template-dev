@@ -51,7 +51,10 @@
 
   New Computer Modern:
   ```typst
-  #set text(size: 12pt, font: "New Computer Modern", bottom-edge: "descender")
-  #set par(leading: 0.85em, spacing: 1.38em)
+  #set text(
+    size: 12pt,
+    font: "New Computer Modern",
+  )
+  #set par(leading: 1.05em, spacing: 1.5em)
   ```
 ]
