@@ -23,6 +23,6 @@ categories = ["thesis", "layout"]
 disciplines = ["engineering", "computer-science"]
 
 [template]
-path = "template"               # TODO: check
+path = "."
 entrypoint = "main-dhbw-ka.typ"
 thumbnail = "thumbnail.png"
