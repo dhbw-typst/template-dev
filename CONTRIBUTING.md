@@ -20,23 +20,9 @@ The [setup guide](README#️-setup) should contain everything you need to get st
 
 ## Contribute a new Adapter
 
-Currently, the template contains university adapters for the DHBW Karlsruhe and Mannheim and the IHK. If you are from a different university, is a great way to contribute, as it makes the template available to more students.
+Currently, the template contains university adapters for the DHBW Karlsruhe and Mannheim and the IHK. If you are from a different university, creating an adapter for your university could be a great way to contribute, as it makes the template available to more students.
 
-Please open an issue, and we are happy to assist you with the implementation.
-
-1. Pick an issue you want to work or create an issue you want to work on yourself.
-2. Follow [setup guide](#️-setup) for your local development environment.
-3. Make sure to format your changes with `typstyle . -i` before committing.
-
-This project is using [get-next-version](https://github.com/thenativeweb/get-next-version) for automatic releases.
-New releases are automatically created for commits on main. The version is determined by the commits prefix:
-
-- `chore`: No release
-- `fix`: Patch version bump
-- `feat`: Minor version bump
-- `feat!`: Major version bump
-
-Add the correct prefix to your PR title and make sure it is included when merging.
+Feel free to open an issue, and we are happy to assist you with the implementation.
 
 ## Code Formatting
 
@@ -51,3 +37,5 @@ These prefixes are used by our release pipeline to determine the next version bu
 - `fix`: (_Patch bump_) Should be used when fixing an issue that has no effect on the API. Must be forward and backwards compatible.
 - `feat`: (_Minor bump_) Should be used when adding a new parameter or function, or when changing the look or behavior of the template. Must be backwards compatible.
 - `feat!`: (_Major bump_) Should be used for major changes to the look of the template or when making changes that are not backwards compatible.
+
+Add the correct prefix to your PR title (e.g., `fix: <PR title>`). If you are unsure, let us know in your PR description.
