@@ -1,9 +1,9 @@
 [package]
-compiler = "0.14.2" # TODO: check
+compiler = "0.14.0" # TODO: check
 name = "dhbw-oderso"
-version = "1.0.0"
+version = "2.0.0"
 entrypoint = "template/lib.typ"
-authors = ["dhbw-typst - a group of motivated DHBW students"]
+authors = ["dhbw-typst"]
 license = "MIT"
 description = "All kinds of theses at DHBW"
 repository = "https://github.com/dhbw-typst/oderso-template-dev"
@@ -18,8 +18,9 @@ keywords = [
     "Final Thesis",
     "IHK",
     "Praxisbericht",
+    "Projektarbeit",
 ]
-categories = ["thesis", "layout"]
+categories = ["thesis", "paper", "report"]
 disciplines = ["engineering", "computer-science"]
 
 [template]
