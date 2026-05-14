@@ -14,7 +14,7 @@ Hello and welcome to the **development repository** of the Typst template. It is
 
 ## 🤝 Contribute
 
-We welcome new contributors! Please take a look at [good first issues](https://github.com/dhbw-typst/oderso-template-dev/contribute) or our [contribution guide](CONTRIBUTING) for more information on how to help!
+We welcome new contributors! Please take a look at [good first issues](https://github.com/dhbw-typst/oderso-template-dev/contribute) or our [contribution guide](CONTRIBUTING.md) for more information on how to help!
 
 ## 🛠️ Setup
 

@@ -16,7 +16,7 @@ Or you can create a new issue if you already have in mind what you want to work 
 
 Please comment on an issue you want to work on, before starting. This prevents a maintainer from picking up an issue you are already working on.
 
-The [setup guide](README#️-setup) should contain everything you need to get started. See [Code Formatting](#code-formatting) and [Pull Requests](#pull-requests) for more information about how we format our code and what to keep in mind when creating a pull request.
+The [setup guide](https://github.com/dhbw-typst/oderso-template-dev#️-setup) should contain everything you need to get started. See [Code Formatting](#code-formatting) and [Pull Requests](#pull-requests) for more information about how we format our code and what to keep in mind when creating a pull request.
 
 ## Contribute a new Adapter
 
