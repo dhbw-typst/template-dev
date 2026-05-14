@@ -283,8 +283,10 @@
     ],
 
     // Meta
-    align(center, {
+    place(center + bottom, {
       show table.cell.where(x: 0): set text(weight: "semibold")
+
+      set par(leading: .6em)
 
       table(
         columns: (1fr, 1fr),
