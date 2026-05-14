@@ -156,10 +156,10 @@
   set text(lang: lang)
 
   // font setup (LaTeX Look: 'New Computer Modern')
-  set text(font: "New Computer Modern", size: 12pt, bottom-edge: "descender")
+  set text(font: "New Computer Modern", size: 12pt)
 
   // justify content
-  set par(justify: true, leading: 0.85em, spacing: 1.38em)
+  set par(justify: true, leading: 1.05em, spacing: 1.5em)
 
   // tables settings
   show table: set par(justify: false)
@@ -168,7 +168,7 @@
   set heading(numbering: __heading-numbering)
 
   show heading: it => {
-    text(font: "Libertinus Serif", it)
+    it
     v(0.5cm)
   }
 
