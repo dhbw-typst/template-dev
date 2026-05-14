@@ -468,7 +468,10 @@
   }
 
   // display appendix
-  if appendices != none {
+  appendices = appendices.filter(item => (
+    item.title != none and item.reference != none
+  ))
+  if appendices.len() > 0 {
     set heading(
       outlined: true,
       numbering: (..nums) => {
