@@ -158,7 +158,8 @@
   // font setup (LaTeX Look: 'New Computer Modern')
   set text(font: "New Computer Modern", size: 12pt)
 
-  // justify content
+  // justify content.
+  // Values researched in https://github.com/dhbw-typst/oderso-template-dev/pull/64 to match Arial 12pt and 1.5 line spacing in Microsoft Word
   set par(justify: true, leading: 1.05em, spacing: 1.5em)
 
   // tables settings
