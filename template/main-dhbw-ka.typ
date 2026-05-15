@@ -84,7 +84,7 @@
   //   reference: "reference-label",
   //   content: [content] || include("appendix.typ")
   // )
-  // change to "appendices: none" to remove appendix
+  // remove property to remove appendices
   appendices: (
     (
       title: "Relevant Stuff",
