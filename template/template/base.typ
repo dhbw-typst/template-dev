@@ -469,7 +469,7 @@
 
   // display appendix
   appendices = appendices.filter(item => (
-    item.title != none and item.reference != none
+    item.title != none and item.content != none
   ))
   if appendices.len() > 0 {
     set heading(
