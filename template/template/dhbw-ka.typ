@@ -190,6 +190,7 @@
       )
     }
 
+    // TODO: Just like above, this check for course-year >= 24 can be removed after September 2026 as all courses will use that statutory declaration.
     if course-year >= 24 and ai-acknowledgement.len() > 0 {
       linebreak()
       __linguify-content("statutory-declaration-note-dhbw-ai")
