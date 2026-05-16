@@ -493,7 +493,7 @@
     )
 
     outline(
-      depth: 3,
+      depth: 1,
       indent: auto,
       title: none,
       target: selector(heading).after(<__appendix-start>),
