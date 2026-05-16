@@ -1,9 +1,11 @@
 // LTeX: enabled=false
-#import "utils.typ": caption-with-source
-#import "template/ihk.typ": ihk-adapter
+#import "template/lib.typ": caption-with-source, ihk-adapter
 
 #show: ihk-adapter.with(
   lang: "de",
+
+  // Set to false if you do not need a confidentiality clause
+  confidentiality-clause: true,
 
   title-long: "Writing in Typst about a long, very scientific topic",
   title-short: "Writing in Typst",
@@ -26,13 +28,14 @@
   processing-period-weeks: 12,
   company-department: "Human Resources",
   company-supervisor: "Max Mustermann",
+  company-logo: image("assets/Company-Logo.svg"),
 
   // appendices: usage: (
   //   title: "Title",
   //   reference: "reference-label",
   //   content: [content] || include("appendix.typ")
   // )
-  // change to "appendices: none" to remove appendix
+  // remove property to remove appendices
   appendices: (
     (
       title: "Relevant Stuff",
@@ -61,6 +64,20 @@
   abbreviations: (
     (key: "NN", short: "NN", long: "Neural Network"),
     (key: "SG", short: "SG", long: "Singular"),
+  ),
+
+  // Specify glossary terms here for term definitions (not abbreviations).
+  // The key is used to reference the term.
+  // The long form is the term and the short form is the abbreviation (only if you need it).
+  // The description is used for the detailed explanation of the term.
+  // Set to empty array () if you don't need a glossary.
+  glossary: (
+    (
+      key: "typ",
+      short: none,
+      long: "Typst",
+      description: "Typst is a new markup-based typesetting system that is designed to be as powerful as LaTeX while being much easier to learn and use.",
+    ),
   ),
 )
 

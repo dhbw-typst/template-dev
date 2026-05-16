@@ -1,8 +1,8 @@
 // LTeX: enabled=false
 
+#import "@preview/linguify:0.5.0": linguify, linguify-raw
 #import "base.typ": __signature-line, project
-#import "../utils.typ": styled-table
-#import "@preview/linguify:0.5.0": *
+#import "utils.typ": __linguify-content, styled-table
 
 /// Template adapter for DHBW Karlsruhe thesis documents.
 ///
@@ -63,7 +63,7 @@
   /// City where the company is located. -> str | none
   company-city: "Berlin",
   /// Company logo image. -> content | none
-  company-logo: image("../do_not_touch/Company-Logo.svg"),
+  company-logo: none,
   /// Department within the company. -> str | none
   company-department: none,
   /// Name of the company supervisor. -> str | none
@@ -75,41 +75,76 @@
   /// The main document body content. -> content
   body,
 ) = {
+  // Submission Information
   let submission-info = [
-    #linguify("as-part-of-examination-dhbw")
+    #__linguify-content("as-part-of-examination-dhbw")
 
     *#examination*
 
-    #linguify("in-field-of-study", args: (study: study))
+    #__linguify-content("in-field-of-study", args: (study: study))
 
-    #context {
-      linguify-raw("at-the-institution", args: (
-        institution: linguify-raw("dhbw-long"),
-        city: linguify-raw("ka"),
-      ))
-    }
+    #context __linguify-content("at-the-institution", args: (
+      institution: linguify-raw("dhbw-long"),
+      city: linguify-raw("ka"),
+    ))
   ]
+
+  // Metadata
   let metadata = (
-    linguify("submission-date"),
+    __linguify-content("submission-date"),
     submission-date.display(submission-date-format),
-    linguify("processing-duration"),
-    linguify("weeks", args: (count: processing-period-weeks)),
-    linguify("matriculation-number") + ", " + linguify("course"),
+    __linguify-content("processing-duration"),
+    __linguify-content("weeks", args: (count: processing-period-weeks)),
+    __linguify-content("matriculation-number")
+      + ", "
+      + __linguify-content("course"),
     authors
       .map(a => a.matriculation-number + ", " + a.course)
       .join(linebreak()),
     ..if company-name != none and company-city != none {
-      (linguify("training-company"), company-name + linebreak() + company-city)
+      (
+        __linguify-content("training-company"),
+        company-name + linebreak() + company-city,
+      )
     },
     ..if company-department != none {
-      (linguify("department"), company-department)
+      (__linguify-content("department"), company-department)
     },
     ..if company-supervisor != none {
-      (linguify("supervisor-at-training-company"), company-supervisor)
+      (__linguify-content("supervisor-at-training-company"), company-supervisor)
     },
-    linguify("supervisor-at-university"),
+    __linguify-content("supervisor-at-university"),
     university-supervisor,
   )
+
+  // AI-Declaration
+  let ai-acknowledgement = ai-acknowledgement.filter(ack => (
+    ack.tool != none and ack.usage != none
+  ))
+  let ai-acknowledgement-text = {
+    pagebreak(weak: true)
+    align(center, heading(
+      __linguify-content("ai-acknowledgement-heading-dhbw"),
+      level: 1,
+    ))
+
+    let table-cells = ai-acknowledgement.fold((), (acc, (tool, usage)) => (
+      acc + (tool, usage)
+    ))
+
+    align(center, styled-table(
+      columns: (auto, 1fr),
+      table-content: (
+        table.header(
+          __linguify-content("tool"),
+          __linguify-content("usage-description"),
+        ),
+        ..table-cells,
+      ),
+    ))
+  }
+
+  // Statutory Declaration
   let statutory-declaration = {
     pagebreak(weak: true)
     // Get course year of first author
@@ -122,34 +157,43 @@
     // TODO: The statutory declaration changed for courses starting in 2024. This complicated edge case for courses from 2023
     // and earlier can safely be removed by September 2026
     let statuatory-declaration = if course-year < 24 {
-      linguify("statutory-declaration-note-dhbw-old", args: (
+      __linguify-content("statutory-declaration-note-dhbw-old", args: (
         author-count: authors.len(),
         title: args.at("title-long"),
         type: args.at("thesis-type"),
       ))
     } else {
-      linguify("statutory-declaration-note-dhbw", args: (
+      __linguify-content("statutory-declaration-note-dhbw", args: (
         author-count: authors.len(),
       ))
     }
 
     let statuatory-declaration-printed = if course-year < 24 {
-      linguify("statutory-declaration-note-dhbw-old-printed", args: (
+      __linguify-content("statutory-declaration-note-dhbw-old-printed", args: (
         author-count: authors.len(),
       ))
     } else {
-      linguify("statutory-declaration-note-dhbw-printed", args: (
+      __linguify-content("statutory-declaration-note-dhbw-printed", args: (
         author-count: authors.len(),
       ))
     }
 
-    align(center, heading(linguify("statutory-declaration"), level: 1))
+    align(center, heading(
+      __linguify-content("statutory-declaration"),
+      level: 1,
+    ))
 
     statuatory-declaration
     if not digital-only {
       (
         " " + statuatory-declaration-printed
       )
+    }
+
+    // TODO: Just like above, this check for course-year >= 24 can be removed after September 2026 as all courses will use that statutory declaration.
+    if course-year >= 24 and ai-acknowledgement.len() > 0 {
+      linebreak()
+      __linguify-content("statutory-declaration-note-dhbw-ai")
     }
 
     set grid.cell(align: left, inset: (x: 1em, y: 0.3em))
@@ -165,55 +209,29 @@
     }
   }
 
+  // Confidentiality Clause
   let confidentiality-clause-text = {
     pagebreak()
-    align(center, heading(linguify("confidentiality-agreement"), level: 1))
-
-    linguify("confidentiality-agreement-note-dhbw")
-  }
-
-  let ai-acknowledgement-empty = false
-  let ai-acknowledgement-text = {
-    pagebreak(weak: true)
+    [#[] <__confidentiality-clause>]
     align(center, heading(
-      linguify("ai-acknowledgement-heading-dhbw"),
+      __linguify-content("confidentiality-agreement"),
       level: 1,
     ))
 
-    let table-cells = ()
-
-    for tool-usage in ai-acknowledgement {
-      if tool-usage.tool == none or tool-usage.usage == none {
-        continue
-      }
-
-      table-cells.push(tool-usage.tool)
-      table-cells.push(tool-usage.usage)
-    }
-
-    if table-cells.len() == 0 {
-      ai-acknowledgement-empty = true
-    }
-
-    align(center, styled-table(
-      columns: (auto, 1fr),
-      table-content: (
-        table.header(linguify("tool"), linguify("usage-description")),
-        ..table-cells,
-      ),
-    ))
+    __linguify-content("confidentiality-agreement-note-dhbw")
   }
 
   show: project.with(
     __logo-left: company-logo,
-    __logo-right: image("../do_not_touch/DHBW-Logo.svg"),
+    __logo-right: image("assets/DHBW-Logo.svg"),
     __authors: authors,
     __submission-info: submission-info,
     __metadata: metadata,
+    __confidentiality-clause: confidentiality-clause,
     __postamble: (
       statutory-declaration,
       ..if (confidentiality-clause) { (confidentiality-clause-text,) },
-      ..if (not ai-acknowledgement-empty) {
+      ..if (ai-acknowledgement.len() > 0) {
         (ai-acknowledgement-text,)
       },
     ),

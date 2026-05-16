@@ -1,6 +1,5 @@
 // LTeX: enabled=false
-#import "utils.typ": caption-with-source
-#import "template/dhbw-ka.typ": dhbw-ka-adapter
+#import "template/lib.typ": caption-with-source, dhbw-ka-adapter
 
 #show: dhbw-ka-adapter.with(
   lang: "en",
@@ -40,7 +39,7 @@
       firstname: "John",
       lastname: "Doe",
       matriculation-number: "0000000",
-      course: "TINF23B2",
+      course: "TINF24B2",
       // remove if you do not have a signature image
       signature: image("assets/example-signature.png"),
     ), // make sure to keep this comma after the first author if there is only one author!
@@ -48,7 +47,7 @@
       firstname: "Erika",
       lastname: "Musterfrau",
       matriculation-number: "1234567",
-      course: "TINF23B1",
+      course: "TINF24B1",
     ),
   ),
 
@@ -62,7 +61,7 @@
   // Remove if your thesis is not written without a company
   company-department: "Human Resources",
   company-supervisor: "Max Mustermann",
-  company-logo: image("do_not_touch/Company-Logo.svg"),
+  company-logo: image("assets/Company-Logo.svg"),
 
   university-supervisor: "Heinrich Braun",
 
@@ -85,7 +84,7 @@
   //   reference: "reference-label",
   //   content: [content] || include("appendix.typ")
   // )
-  // change to "appendices: none" to remove appendix
+  // remove property to remove appendices
   appendices: (
     (
       title: "Relevant Stuff",
@@ -115,6 +114,20 @@
   abbreviations: (
     (key: "NN", short: "NN", long: "Neural Network"),
     (key: "SG", short: "SG", long: "Singular"),
+  ),
+
+  // Specify glossary terms here for term definitions (not abbreviations).
+  // The key is used to reference the term.
+  // The long form is the term and the short form is the abbreviation (only if you need it).
+  // The description is used for the detailed explanation of the term.
+  // Set to empty array () if you don't need a glossary.
+  glossary: (
+    (
+      key: "typ",
+      short: none,
+      long: "Typst",
+      description: "Typst is a new markup-based typesetting system that is designed to be as powerful as LaTeX while being much easier to learn and use.",
+    ),
   ),
 )
 

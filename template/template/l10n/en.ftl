@@ -20,6 +20,7 @@ date-of-signature = Date
 signature = Signature
 
 confidentiality-agreement = Confidentiality Agreement
+confidentiality-stamp = CONFIDENTIAL
 
 tool = Tool
 usage-description = Usage Description
@@ -31,11 +32,12 @@ abstract = Abstract
 # lists headers
 list-of-notes = List of Notes
 table-of-contents = Table of Contents
-list-of-abbreviations = List of Abbreviations
+abbreviations = Abbreviations
+glossary = Glossary
 list-of-figures = List of Figures
 list-of-tables = List of Tables
 list-of-code = List of Code
-list-of-bibliography = List of Bibliography
+bibliography = Bibliography
 
 # appendix
 appendix = Appendix
@@ -59,6 +61,10 @@ statutory-declaration-note-dhbw = { $author-count ->
 statutory-declaration-note-dhbw-printed = { $author-count ->
     [one] Furthermore, I declare that the submitted electronic version is identical to the printed version.
    *[other] Furthermore, we declare that the submitted electronic version is identical to the printed version.
+}
+statutory-declaration-note-dhbw-ai = { $author-count ->
+    [one] I have used AI tools in the creation of this work. I have indicated this at the appropriate place in the work.
+   *[other] We have used AI tools in the creation of this work. We have indicated this at the appropriate place in the work.
 }
 
 statutory-declaration-note-dhbw-old = { $author-count ->

@@ -20,6 +20,7 @@ date-of-signature = Datum
 signature = Unterschrift
 
 confidentiality-agreement = Sperrvermerk
+confidentiality-stamp = VERTRAULICH
 
 tool = Werkzeug
 usage-description = Beschreibung der Nutzung
@@ -31,11 +32,12 @@ abstract = Zusammenfassung
 # lists headers
 list-of-notes = Notizverzeichnis
 table-of-contents = Inhaltsverzeichnis
-list-of-abbreviations = Abkürzungsverzeichnis
+abbreviations = Abkürzungsverzeichnis
+glossary = Glossar
 list-of-figures = Abbildungsverzeichnis
 list-of-tables = Tabellenverzeichnis
 list-of-code = Quellcodeverzeichnis
-list-of-bibliography = Literaturverzeichnis
+bibliography = Literaturverzeichnis
 
 # appendix
 appendix = Anhang
@@ -59,6 +61,10 @@ statutory-declaration-note-dhbw = { $author-count ->
 statutory-declaration-note-dhbw-printed = { $author-count ->
     [one] Des Weiteren versichere ich, dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.
    *[other] Des Weiteren versichern wir, dass die eingereichte elektronische Fassung mit der gedruckten Ausfertigung übereinstimmt.
+}
+statutory-declaration-note-dhbw-ai = { $author-count ->
+    [one] Ich habe bei der Erstellung der Arbeit KI-Werkzeuge eingesetzt. Dies habe ich an entsprechender Stelle der Arbeit kenntlich gemacht.
+   *[other] Wir haben bei der Erstellung der Arbeit KI-Werkzeuge eingesetzt. Dies haben wir an entsprechender Stelle der Arbeit kenntlich gemacht.
 }
 
 statutory-declaration-note-dhbw-old = { $author-count ->

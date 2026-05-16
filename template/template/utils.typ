@@ -1,70 +1,6 @@
 // LTeX: enabled=false
 
-#import "@preview/tidy:0.4.3"
-
-/// Creates a figure for source code with a caption.
-///
-/// Figures created using this function will appear in the source-code table of contents
-/// with the supplement "Code".
-///
-/// ```example
-/// #codefigure(
-///   raw("fn main() { }", lang: "rust"),
-///   caption: [Main function],
-/// )
-/// ```
-/// -> content
-#let codefigure(
-  /// The code content to display (typically a `raw` block). -> content
-  body,
-  /// Optional caption text for the figure. -> content | none
-  caption: none,
-  /// Optional label string for cross-referencing (e.g., `"lst:example"`).
-  /// Use `@lst:example` syntax to reference it in text. -> str | none
-  reference: none,
-) = {
-  [
-    #figure(
-      body,
-      caption: caption,
-      outlined: true,
-      supplement: [Code],
-    )
-    #if reference != none {
-      label(reference)
-    }
-  ]
-}
-
-/// Creates a code figure by reading content from an external file.
-///
-/// This is a convenience wrapper around @codefigure that automatically reads
-/// and displays the contents of a source file. The syntax highlighting language
-/// is auto-detected from the file extension unless explicitly specified.
-/// -> content
-#let codefigurefile(
-  /// Path to the source file to include (relative to the main file). -> str
-  file,
-  /// Optional caption text for the figure. -> content | none
-  caption: none,
-  /// Optional label string for cross-referencing. -> str | none
-  reference: none,
-  /// Override the syntax highlighting language.
-  /// If `none`, the language is inferred from the file extension. -> str | none
-  lang: none,
-) = {
-  // extract language from file name if no lang was specified
-  if lang == none {
-    if file.contains(".") {
-      lang = file.split(".").last()
-    }
-  }
-  codefigure(
-    raw(read(file), lang: lang, block: true),
-    caption: caption,
-    reference: reference,
-  )
-}
+#import "@preview/linguify:0.5.0": linguify-raw
 
 /// Internal state to track whether we are currently rendering an outline.
 /// -> state
@@ -291,4 +227,8 @@
     table-content: table-content,
     ..args,
   ))
+}
+
+#let __linguify-content(..args) = {
+  context eval(linguify-raw(..args), mode: "markup")
 }

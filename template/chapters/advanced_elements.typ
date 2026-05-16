@@ -1,5 +1,5 @@
 #import "basic_formatting.typ": typst-preview
-#import "../utils.typ": caption-with-source
+#import "../template/lib.typ": caption-with-source
 
 = Advanced Elements
 
@@ -11,10 +11,10 @@ Inserting figures and code blocks into your Typst document enhances its informat
 === Image Figures
 #typst-preview(
   "Image Figures in Typst",
-  "#import \"../utils.typ\": caption-with-source
+  "#import \"../template/lib.typ\": caption-with-source
 #figure(
-  image(\"../do_not_touch/Company-Logo.svg\"),
-  caption: caption-with-source(\"Comapny Logo\", [@electronic]),
+  image(\"../assets/Company-Logo.svg\"),
+  caption: caption-with-source(\"Company Logo\", [@electronic]),
 )",
 )
 
@@ -24,7 +24,7 @@ Similar to images you can insert table figures. See more table examples and more
 
 #typst-preview(
   "Table Figures in Typst",
-  "#import \"../utils.typ\": tablefigure
+  "#import \"../template/lib.typ\": tablefigure
 #tablefigure(
   columns: 3,
   caption: [Example table],
@@ -40,33 +40,39 @@ Similar to images you can insert table figures. See more table examples and more
 
 === Code Snippets
 
-#import "../utils.typ": codefigure, codefigurefile
-
 This template uses #link("https://typst.app/universe/package/codly")[Codly] for code snippets. Look at their documentation on how to further customize and control your code blocks.
 
-Besides that the template provides two functions to create code snippet figures that get listed in a source code listing: `codefigure` and `codefigurefile`.
+Code blocks can be created using three backticks:
 
-Use `codefigure` to display a code figure from the provided code.
+#typst-preview(
+  "Code Blocks in Typst",
+  "```js
+console.log(\"Hello World\")
+```",
+)
+
+You can also wrap a code block in a figure to create a code figure, which will be listed in "List of Code":
 
 #typst-preview(
   "Code Figures in Typst",
-  "#import \"../utils.typ\": codefigure
-
-#codefigure(caption: [My Code])[```rust
+  "#figure(caption: [My Code])[```rust
 fn main() {
   println!(\"Hello World!\");
 }
 ```]",
 )
 
-Use `codefigurefile` to create a code snippet figure from the content of a file. Note that the provided file is searched relative to the location of your `main.typ` file.
+If you want to create a _normal_ figure containing raw text that should not be classified as a code figure (for example command line output), set the `kind` property to `image` explicitly:
 
 #typst-preview(
-  "Code Figure loading from file",
-  "#import \"../utils.typ\": codefigurefile
-
-#codefigurefile(\"assets/example-code.typ\", caption: [My Code from a file])",
+  "Non-Code-Code-Figure in Typst",
+  "#figure(caption: [My Command Line Output], kind: image)[```
+> echo \"Hello World\"
+Hello World
+```]",
 )
+
+With `kind: image`, the figure is not listed in "List of Code", but in "List of Figures" instead.
 
 == Math
 The math syntax is a loose interpretation of LaTeX, allowing you to create complex mathematical equations with ease.
@@ -78,8 +84,10 @@ See #link("https://typst.app/docs/reference/math/", "the Typst documentation") f
   sum_(k=0)^n k
   &= 1 + ... + n \
   &= (n(n+1)) / 2 \
-$",
+$<math-figure>",
 )
+
+You can reference labeled equations like other figures. @math-figure shows the sum of the first $n$ natural numbers.
 
 == Block Quotes
 
@@ -94,7 +102,7 @@ $",
 
 == Notes
 
-#import "@preview/drafting:0.2.2": *
+#import "@preview/drafting:0.2.2": inline-note, margin-note
 
 This template uses #link("https://typst.app/universe/package/drafting/")[Drafting] for notes.
 Using `margin-note` you can add notes to #margin-note("Anywhere in your document!") the margin of your document.

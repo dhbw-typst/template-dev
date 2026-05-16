@@ -1,4 +1,4 @@
-<img src="banner.jpeg" width="100%" />
+<img src="https://raw.githubusercontent.com/dhbw-typst/oderso-template-dev/refs/heads/main/banner.jpeg" width="100%" />
 
 # ODERSO Typst Template
 
@@ -10,7 +10,7 @@ The template was built for DHBW Karlsruhe, but also has adapters for DHBW Mannhe
 > [!TIP]
 > Want to see how the template looks? Download a preview PDF for [DHBW Karlsruhe](https://github.com/dhbw-typst/oderso-template/releases/latest/download/main-dhbw-ka.pdf), [DHBW Mannheim](https://github.com/dhbw-typst/oderso-template/releases/latest/download/main-dhbw-ma.pdf) or [IHK](https://github.com/dhbw-typst/oderso-template/releases/latest/download/main-ihk.pdf) to inspect the final result.
 >
-> Those pdfs also contain **a detailed documentation of the template**.
+> A description of all functions and properties can be found in the [package documentation]((https://github.com/dhbw-typst/oderso-template/releases/latest/download/documentation.pdf)).
 
 ## 🏃‍♂️ Getting Started
 
@@ -19,7 +19,7 @@ The template was built for DHBW Karlsruhe, but also has adapters for DHBW Mannhe
 
 For the following setup guide, make sure you have installed [Visual Studio Code](https://code.visualstudio.com/).
 
-1. Click on [![Generate](https://img.shields.io/badge/Generate_from_template-8A2BE2?logo=github)](https://github.com/dhbw-typst/oderso-template/generate) and give your repository a telling name (e. g. `pa-1`)
+1. Click on [![Generate](https://img.shields.io/badge/Generate_from_template-8A2BE2?logo=github)](https://github.com/dhbw-typst/oderso-template/generate) and give your repository a telling name (e.g. `pa-1`)
 2. Clone your repository to your local machine: `git clone https://github.com/<you>/pa-1.git`
 3. Open this directory using VSCode and install the recommended extensions
    - Tinymist (provides completions, preview and PDF-generation for your template)
@@ -80,5 +80,5 @@ Over the years, the template has grown to include many features and now supports
 
 The goal of this template is to make writing your thesis at DHBW as easy as possible! That said, there are some alternatives worth knowing about:
 
-- [clean-dhbw](https://typst.app/universe/package/clean-dhbw/): A template written by a professor of the DHBW Karlsruhe. We found it to be fairly opinionated and limited in customization. At also lacks many features this template provides.
-- [supercharged-dhbw](https://github.com/DannySeidel/typst-dhbw-template): Another template for DHBW students. As of 16.07.2025, the last commit was over half a year old, so outdated package versions may cause issues with the latest version of Typst. We do not recommend using an unmaintained template, especially for users less familiar with Typst.
+- [clean-dhbw](https://typst.app/universe/package/clean-dhbw/): A template written by a professor of the DHBW Karlsruhe. We found it to be fairly opinionated and limited in customization. It also lacks many features this template provides.
+- [supercharged-dhbw](https://typst.app/universe/package/supercharged-dhbw/): Another template for DHBW Karlsruhe students. As of May 2026, the last commit was over a year old, so outdated package versions may cause issues with the latest version of Typst. We do not recommend using an unmaintained template, especially for users less familiar with Typst.

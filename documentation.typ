@@ -1,5 +1,8 @@
 #import "@preview/tidy:0.4.3"
-#import "template/utils.typ": *
+#import "template/template/utils.typ": (
+  caption-with-source, styled-table, table-hline-spaced, tablefigure,
+  tablefigure-raw,
+)
 
 #show link: it => {
   if type(it.dest) == str {
@@ -78,10 +81,8 @@
 }
 
 #let utils-docs = tidy.parse-module(
-  read("template/utils.typ"),
+  read("template/template/utils.typ"),
   scope: (
-    codefigure: codefigure,
-    codefigurefile: codefigurefile,
     caption-with-source: caption-with-source,
     table-hline-spaced: table-hline-spaced,
     tablefigure-raw: tablefigure-raw,

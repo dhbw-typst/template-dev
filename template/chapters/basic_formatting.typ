@@ -1,4 +1,4 @@
-#import "../utils.typ": tablefigure
+#import "../template/lib.typ": tablefigure
 
 = Basic Formatting
 
@@ -8,7 +8,6 @@
   align: (_, row) => if row == 0 { center } else { horizon + left },
   table-content: (
     table.header("Typst Code", "Output"),
-
     align(horizon, box(width: 100%, raw(typst-code, lang: "typ", block: true))),
     box(width: 100%, {
       set heading(outlined: false)

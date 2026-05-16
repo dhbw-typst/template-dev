@@ -1,6 +1,5 @@
 // LTeX: enabled=false
-#import "utils.typ": caption-with-source
-#import "template/dhbw-ma.typ": dhbw-ma-adapter
+#import "template/lib.typ": caption-with-source, dhbw-ma-adapter
 
 #show: dhbw-ma-adapter.with(
   lang: "en",
@@ -60,7 +59,7 @@
     email: "max.mustermann@examples.com",
     phone-number: "+49 0000 1111",
   ),
-  company-logo: image("do_not_touch/Company-Logo.svg"),
+  company-logo: image("assets/Company-Logo.svg"),
 
   university-supervisor: (
     firstname: "Heinrich",
@@ -100,7 +99,7 @@
   //   reference: "reference-label",
   //   content: [content] || include("appendix.typ")
   // )
-  // change to "appendices: none" to remove appendix
+  // remove property to remove appendices
   appendices: (
     (
       title: "Relevant Stuff",
@@ -130,6 +129,20 @@
   abbreviations: (
     (key: "NN", short: "NN", long: "Neural Network"),
     (key: "SG", short: "SG", long: "Singular"),
+  ),
+
+  // Specify glossary terms here for term definitions (not abbreviations).
+  // The key is used to reference the term.
+  // The long form is the term and the short form is the abbreviation (only if you need it).
+  // The description is used for the detailed explanation of the term.
+  // Set to empty array () if you don't need a glossary.
+  glossary: (
+    (
+      key: "typ",
+      short: none,
+      long: "Typst",
+      description: "Typst is a new markup-based typesetting system that is designed to be as powerful as LaTeX while being much easier to learn and use.",
+    ),
   ),
 )
 
