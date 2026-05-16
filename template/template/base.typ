@@ -1,8 +1,6 @@
 // LTeX: enabled=false
 
-#import "@preview/glossarium:0.5.10": (
-  gls, glspl, make-glossary, print-glossary, register-glossary,
-)
+#import "@preview/glossarium:0.5.10": gls, glspl, make-glossary, print-glossary, register-glossary
 #import "@preview/hydra:0.6.2": hydra
 #import "@preview/codly:1.3.0": codly, codly-init
 #import "@preview/drafting:0.2.2": note-outline, set-margin-note-defaults
@@ -493,7 +491,7 @@
     )
 
     outline(
-      depth: 3,
+      depth: 1,
       indent: auto,
       title: none,
       target: selector(heading).after(<__appendix-start>),
